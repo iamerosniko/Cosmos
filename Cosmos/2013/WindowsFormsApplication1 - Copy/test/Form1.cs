@@ -10,7 +10,9 @@ namespace test
         {
             InitializeComponent();
             testEntities test = new testEntities();
+            //test.Database.Connection = ".\test.db3";
             var a = test.testtable1.Where(x => x.name == "eros").FirstOrDefault();
+            MessageBox.Show(test.Database.Connection.ConnectionString.ToString());
             MessageBox.Show(a.name);
         }
     }
