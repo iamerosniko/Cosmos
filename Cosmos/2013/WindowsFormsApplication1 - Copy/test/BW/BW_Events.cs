@@ -19,17 +19,11 @@ namespace test.BW
 
         public bool Post(IS_Events events)
         {
-            var a = Get().Find(x => x.EventID == events.EventID);
-            if (a == null)
-            {
-                context.IS_Events.Add(events);
-                context.SaveChanges();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+
+            context.IS_Events.Add(events);
+            context.SaveChanges();
+            return true;
+
         }
         public void Put(IS_Events events)
         {

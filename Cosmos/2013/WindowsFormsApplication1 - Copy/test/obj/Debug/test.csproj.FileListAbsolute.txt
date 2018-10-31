@@ -41,3 +41,4 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.pdb
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\MetroFramework.Design.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.Registration.resources

@@ -66,6 +66,7 @@ namespace test
         private void btnRefresh_Click(object sender, System.EventArgs e)
         {
             GetEmployees();
+            GetEvents();
         }
 
         #endregion
@@ -74,21 +75,66 @@ namespace test
 
         public void GetEvents()
         {
-            GridEvents.DataSource = myevents.Get();
+            var listEvents = myevents.Get();
+            GridEvents.DataSource = listEvents;
             GridEmployees.Columns[0].Visible = false;
             GridEmployees.Columns[1].HeaderText = "Event";
             GridEmployees.Columns[2].HeaderText = "Event Date";
             GridEmployees.Columns[3].HeaderText = "Venue";
+            cmbEvent.DataSource = listEvents;
+            cmbEvent.DisplayMember = "EventName";
+            cmbEvent.ValueMember = "EventID";
         }
         #endregion
 
         private void Main_Load(object sender, System.EventArgs e)
         {
-
             GetEmployees();
             GetEvents();
         }
 
+        private void btnEventCheck_Click(object sender, System.EventArgs e)
+        {
+            var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
+            txtDeetsEventDate.Text = a.EventDate;
+            txtDeetsVenue.Text = a.EventLocation;
+        }
 
+        private void btnGoEventRegistration_Click(object sender, System.EventArgs e)
+        {
+            var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
+            Registration r = new Registration(a.EventName);
+            r.ShowDialog();
+        }
+
+        private void btnSaveEvent_Click(object sender, System.EventArgs e)
+        {
+            IS_Events isEvent = new IS_Events
+            {
+                EventDate = txtEventDate.Value.ToShortDateString(),
+                EventLocation = txtVenue.Text,
+                EventName = txtEventName.Text
+            };
+
+            if (isEvent.EventName.Trim().Equals(""))
+            {
+                MessageBox.Show("Event Name is Required.");
+            }
+            else if (isEvent.EventLocation.Trim().Equals(""))
+            {
+                MessageBox.Show("Venue is Required.");
+            }
+            else if (isEvent.EventDate.Trim().Equals(""))
+            {
+                MessageBox.Show("Event Date is Required.");
+            }
+
+            else
+            {
+                var result = myevents.Post(isEvent);
+                if (result == true) MessageBox.Show("Event Successfully Added."); else MessageBox.Show("Workday ID Already Exists.");
+                btnRefresh_Click(sender, e);
+            }
+        }
     }
 }
