@@ -105,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BW\BW_Employees.cs" />
+    <Compile Include="BW\BW_EventRegistration.cs" />
     <Compile Include="BW\BW_Events.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
