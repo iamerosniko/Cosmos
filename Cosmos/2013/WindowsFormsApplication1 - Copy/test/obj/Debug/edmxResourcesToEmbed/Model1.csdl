@@ -9,5 +9,35 @@
   </EntityType>
   <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="testtable1" EntityType="Self.testtable1" />
+    <EntitySet Name="IS_Employees" EntityType="testModel.IS_Employees" />
+    <EntitySet Name="IS_Events" EntityType="testModel.IS_Events" />
+    <EntitySet Name="IS_EventRegistration" EntityType="testModel.IS_EventRegistration" />
   </EntityContainer>
+  <EntityType Name="IS_Employees">
+    <Key>
+      <PropertyRef Name="WorkdayID" />
+    </Key>
+    <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeTeam" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeTeamLeader" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IS_Events">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EventDate" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EventLocation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="IS_EventRegistration">
+    <Key>
+      <PropertyRef Name="EventRegistrationID" />
+    </Key>
+    <Property Name="EventRegistrationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventID" Type="Int64" Nullable="false" />
+    <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EventRegistrationSignedDate" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

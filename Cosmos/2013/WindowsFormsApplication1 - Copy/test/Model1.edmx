@@ -4,7 +4,34 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="testModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1\test\test.db3" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="testModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1\test\test.db3" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IS_Employees">
+          <Key>
+            <PropertyRef Name="WorkdayID" />
+          </Key>
+          <Property Name="WorkdayID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EmployeeTeam" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EmployeeTeamLeader" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
+        <EntityType Name="IS_EventRegistration">
+          <Key>
+            <PropertyRef Name="EventRegistrationID" />
+          </Key>
+          <Property Name="EventRegistrationID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventID" Type="integer" Nullable="false" />
+          <Property Name="WorkdayID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EventRegistrationSignedDate" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IS_Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EventDate" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="EventLocation" Type="nvarchar" MaxLength="2147483647" />
+        </EntityType>
         <EntityType Name="testtable1">
           <Key>
             <PropertyRef Name="id" />
@@ -13,10 +40,12 @@
           <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
         <EntityContainer Name="testModelStoreContainer">
+          <EntitySet Name="IS_Employees" EntityType="Self.IS_Employees" store:Type="Tables" />
+          <EntitySet Name="IS_EventRegistration" EntityType="Self.IS_EventRegistration" store:Type="Tables" />
+          <EntitySet Name="IS_Events" EntityType="Self.IS_Events" store:Type="Tables" />
           <EntitySet Name="testtable1" EntityType="Self.testtable1" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -29,7 +58,37 @@
         </EntityType>
         <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="testtable1" EntityType="Self.testtable1" />
+          <EntitySet Name="IS_Employees" EntityType="testModel.IS_Employees" />
+          <EntitySet Name="IS_Events" EntityType="testModel.IS_Events" />
+          <EntitySet Name="IS_EventRegistration" EntityType="testModel.IS_EventRegistration" />
         </EntityContainer>
+        <EntityType Name="IS_Employees">
+          <Key>
+            <PropertyRef Name="WorkdayID" />
+          </Key>
+          <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTeam" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTeamLeader" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IS_Events">
+          <Key>
+            <PropertyRef Name="EventID" />
+          </Key>
+          <Property Name="EventID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EventDate" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EventLocation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="IS_EventRegistration">
+          <Key>
+            <PropertyRef Name="EventRegistrationID" />
+          </Key>
+          <Property Name="EventRegistrationID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventID" Type="Int64" Nullable="false" />
+          <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EventRegistrationSignedDate" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -41,6 +100,36 @@
               <MappingFragment StoreEntitySet="testtable1">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IS_Employees">
+            <EntityTypeMapping TypeName="testModel.IS_Employees">
+              <MappingFragment StoreEntitySet="IS_Employees">
+                <ScalarProperty Name="EmployeeTeamLeader" ColumnName="EmployeeTeamLeader" />
+                <ScalarProperty Name="EmployeeTeam" ColumnName="EmployeeTeam" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IS_Events">
+            <EntityTypeMapping TypeName="testModel.IS_Events">
+              <MappingFragment StoreEntitySet="IS_Events">
+                <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IS_EventRegistration">
+            <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
+              <MappingFragment StoreEntitySet="IS_EventRegistration">
+                <ScalarProperty Name="EventRegistrationSignedDate" ColumnName="EventRegistrationSignedDate" />
+                <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="EventRegistrationID" ColumnName="EventRegistrationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

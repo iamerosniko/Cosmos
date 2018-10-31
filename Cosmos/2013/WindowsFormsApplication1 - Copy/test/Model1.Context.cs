@@ -26,5 +26,8 @@ namespace test
         }
     
         public virtual DbSet<testtable1> testtable1 { get; set; }
+        public virtual DbSet<IS_Employees> IS_Employees { get; set; }
+        public virtual DbSet<IS_Events> IS_Events { get; set; }
+        public virtual DbSet<IS_EventRegistration> IS_EventRegistration { get; set; }
     }
 }
