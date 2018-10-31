@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Forms;
+using System.Windows.Forms;
 using test.BW;
 
 namespace test
@@ -41,6 +42,40 @@ namespace test
         private void btnRefresh_Click(object sender, System.EventArgs e)
         {
             GetEmployees();
+        }
+
+        private void btnSave_Click(object sender, System.EventArgs e)
+        {
+            IS_Employees isEmployee = new IS_Employees
+            {
+                EmployeeName = txtFullName.Text,
+                EmployeeTeam = txtTeam.Text,
+                EmployeeTeamLeader = txtTeamLeader.Text,
+                WorkdayID = txtWorkdayID.Text
+            };
+
+            if (isEmployee.WorkdayID.Trim().Equals(""))
+            {
+                MessageBox.Show("Workday ID is Required.");
+            }
+            else if (isEmployee.EmployeeName.Trim().Equals(""))
+            {
+                MessageBox.Show("Employee Name is Required.");
+            }
+            else if (isEmployee.EmployeeTeam.Trim().Equals(""))
+            {
+                MessageBox.Show("Team is Required.");
+            }
+            else if (isEmployee.EmployeeTeamLeader.Trim().Equals(""))
+            {
+                MessageBox.Show("Team Leader is Required.");
+            }
+            else
+            {
+                employees.Post(isEmployee);
+                MessageBox.Show("Employee Successfully Added.");
+                btnRefresh_Click(sender, e);
+            }
         }
     }
 }

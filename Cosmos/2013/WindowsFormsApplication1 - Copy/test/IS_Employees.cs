@@ -9,14 +9,17 @@
 
 namespace test
 {
-    using System;
-    using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class IS_Employees
     {
+        [Required]
         public string WorkdayID { get; set; }
+        [Required]
         public string EmployeeName { get; set; }
+        [Required]
         public string EmployeeTeam { get; set; }
+        [Required]
         public string EmployeeTeamLeader { get; set; }
     }
 }
