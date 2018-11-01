@@ -12,40 +12,23 @@ namespace test.BW
             context = _context;
         }
 
-        public List<IS_Employees> Get()
+        public List<IS_EventRegistration> Get()
         {
-            return context.IS_Employees.ToList();
+            return context.IS_EventRegistration.ToList();
         }
 
-        public bool Post(IS_Employees employees)
+        public bool Post(IS_EventRegistration registration)
         {
-            var a = Get().Find(x => x.WorkdayID == employees.WorkdayID);
-            if (a == null)
+            //determine if already registered
+            var registered = Get().Find(x => x.EventID == registration.EventID && x.WorkdayID == registration.WorkdayID);
+            if (registered == null)
             {
-                context.IS_Employees.Add(employees);
-                context.SaveChanges();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public void Put(IS_Employees employees)
-        {
-            //context.IS_Employees.
-        }
-        public bool Delete(string workdayID)
-        {
-            var Employee = Get().Find(x => x.WorkdayID == workdayID);
-            if (Employee != null)
-            {
-                context.IS_Employees.Remove(Employee);
+                context.IS_EventRegistration.Add(registration);
                 context.SaveChanges();
                 return true;
             }
             return false;
-
         }
+
     }
 }

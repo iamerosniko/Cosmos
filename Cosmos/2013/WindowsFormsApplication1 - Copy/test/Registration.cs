@@ -1,4 +1,5 @@
 ﻿using MetroFramework.Forms;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 using test.BW;
@@ -33,6 +34,14 @@ namespace test
             PnlMain.Anchor = AnchorStyles.None;
         }
 
+        public void ClearAll()
+        {
+            txtEmployee.Clear();
+            txtLeader.Clear();
+            txtTeam.Clear();
+            txtWorkdayID.Clear();
+        }
+
         private void txtWorkdayID_Leave(object sender, System.EventArgs e)
         {
             employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text);
@@ -60,6 +69,48 @@ namespace test
             {
                 MessageBox.Show("No Employee Found.");
             }
+            else
+            {
+                IS_EventRegistration registration = new IS_EventRegistration
+                {
+                    EventID = long.Parse(_eventID),
+                    EventRegistrationSignedDate = DateTime.Now.ToShortDateString(),
+                    WorkdayID = employee.WorkdayID
+                };
+
+                var result = _bwEventRegistration.Post(registration);
+
+                if (result)
+                {
+                    MessageBox.Show("Successfully Registered.");
+                }
+                else
+                {
+                    MessageBox.Show("Already Registered");
+                }
+                ClearAll();
+            }
+        }
+
+        private void txtWorkdayID_KeyUp(object sender, KeyEventArgs e)
+        {
+            employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text);
+
+            if (employee == null)
+            {
+                txtEmployee.Clear();
+                txtLeader.Clear();
+                txtTeam.Clear();
+            }
+            else
+            {
+                txtEmployee.Text = employee.EmployeeName;
+                txtLeader.Text = employee.EmployeeTeamLeader;
+                txtTeam.Text = employee.EmployeeTeam;
+
+            }
+
+            btnRegister.Enabled = true;
         }
     }
 }

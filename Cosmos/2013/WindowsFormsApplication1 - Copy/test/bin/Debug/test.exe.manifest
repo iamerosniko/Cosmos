@@ -324,14 +324,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="test.exe" size="49656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="test.exe" size="50168">
       <assemblyIdentity name="test" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>tihI4UILKBFfmhXN7VIl/+XxSXfldpmKTjtnMPN9eCs=</dsig:DigestValue>
+        <dsig:DigestValue>69UE/vqSEajdIq3a+n4qT8zwMeX9kbkJLD5sADpnaBk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
