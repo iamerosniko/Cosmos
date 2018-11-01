@@ -118,6 +118,7 @@
             // 
             // PGEmployee
             // 
+            this.PGEmployee.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PGEmployee.Controls.Add(this.TCEmp);
             this.PGEmployee.HorizontalScrollbarBarColor = true;
             this.PGEmployee.HorizontalScrollbarHighlightOnWheel = false;
@@ -140,12 +141,13 @@
             this.TCEmp.Location = new System.Drawing.Point(3, 3);
             this.TCEmp.Name = "TCEmp";
             this.TCEmp.SelectedIndex = 0;
-            this.TCEmp.Size = new System.Drawing.Size(1312, 602);
+            this.TCEmp.Size = new System.Drawing.Size(1310, 600);
             this.TCEmp.TabIndex = 1;
             this.TCEmp.UseSelectable = true;
             // 
             // PGList
             // 
+            this.PGList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PGList.Controls.Add(this.btnRefresh);
             this.PGList.Controls.Add(this.GridEmployees);
             this.PGList.HorizontalScrollbarBarColor = true;
@@ -154,7 +156,7 @@
             this.PGList.Location = new System.Drawing.Point(4, 38);
             this.PGList.Name = "PGList";
             this.PGList.Padding = new System.Windows.Forms.Padding(3);
-            this.PGList.Size = new System.Drawing.Size(1304, 560);
+            this.PGList.Size = new System.Drawing.Size(1302, 558);
             this.PGList.TabIndex = 0;
             this.PGList.Text = "List";
             this.PGList.VerticalScrollbarBarColor = true;
@@ -203,7 +205,7 @@
             this.GridEmployees.EnableHeadersVisualStyles = false;
             this.GridEmployees.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmployees.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GridEmployees.Location = new System.Drawing.Point(3, 45);
+            this.GridEmployees.Location = new System.Drawing.Point(3, 41);
             this.GridEmployees.Name = "GridEmployees";
             this.GridEmployees.ReadOnly = true;
             this.GridEmployees.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -217,7 +219,7 @@
             this.GridEmployees.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridEmployees.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridEmployees.Size = new System.Drawing.Size(1298, 512);
+            this.GridEmployees.Size = new System.Drawing.Size(1294, 512);
             this.GridEmployees.TabIndex = 2;
             // 
             // PGEmployeeMaintenance
@@ -510,6 +512,7 @@
             // 
             // PGEvents
             // 
+            this.PGEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PGEvents.Controls.Add(this.TCEvent);
             this.PGEvents.HorizontalScrollbarBarColor = true;
             this.PGEvents.HorizontalScrollbarHighlightOnWheel = false;
@@ -531,7 +534,7 @@
             this.TCEvent.Location = new System.Drawing.Point(3, 3);
             this.TCEvent.Name = "TCEvent";
             this.TCEvent.SelectedIndex = 0;
-            this.TCEvent.Size = new System.Drawing.Size(1312, 602);
+            this.TCEvent.Size = new System.Drawing.Size(1310, 600);
             this.TCEvent.TabIndex = 2;
             this.TCEvent.UseSelectable = true;
             // 
@@ -544,7 +547,7 @@
             this.PgEventMaintenance.HorizontalScrollbarSize = 10;
             this.PgEventMaintenance.Location = new System.Drawing.Point(4, 38);
             this.PgEventMaintenance.Name = "PgEventMaintenance";
-            this.PgEventMaintenance.Size = new System.Drawing.Size(1304, 560);
+            this.PgEventMaintenance.Size = new System.Drawing.Size(1302, 558);
             this.PgEventMaintenance.TabIndex = 0;
             this.PgEventMaintenance.Text = "Maintenance";
             this.PgEventMaintenance.VerticalScrollbarBarColor = true;
@@ -566,9 +569,9 @@
             this.panel1.HorizontalScrollbarBarColor = true;
             this.panel1.HorizontalScrollbarHighlightOnWheel = false;
             this.panel1.HorizontalScrollbarSize = 10;
-            this.panel1.Location = new System.Drawing.Point(935, 0);
+            this.panel1.Location = new System.Drawing.Point(933, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(369, 560);
+            this.panel1.Size = new System.Drawing.Size(369, 558);
             this.panel1.TabIndex = 3;
             this.panel1.VerticalScrollbarBarColor = true;
             this.panel1.VerticalScrollbarHighlightOnWheel = false;
@@ -578,7 +581,7 @@
             // 
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtEventDate.Location = new System.Drawing.Point(13, 227);
-            this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.txtEventDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(337, 29);
             this.txtEventDate.TabIndex = 18;
@@ -702,7 +705,7 @@
             this.metroPanel4.Location = new System.Drawing.Point(0, 0);
             this.metroPanel4.Name = "metroPanel4";
             this.metroPanel4.Padding = new System.Windows.Forms.Padding(20);
-            this.metroPanel4.Size = new System.Drawing.Size(929, 560);
+            this.metroPanel4.Size = new System.Drawing.Size(929, 558);
             this.metroPanel4.TabIndex = 2;
             this.metroPanel4.VerticalScrollbarBarColor = true;
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
@@ -737,7 +740,7 @@
             this.GridEvents.EnableHeadersVisualStyles = false;
             this.GridEvents.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEvents.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GridEvents.Location = new System.Drawing.Point(20, 50);
+            this.GridEvents.Location = new System.Drawing.Point(20, 48);
             this.GridEvents.Name = "GridEvents";
             this.GridEvents.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -765,6 +768,7 @@
             // 
             // PgEventRegistration
             // 
+            this.PgEventRegistration.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PgEventRegistration.Controls.Add(this.metroPanel3);
             this.PgEventRegistration.HorizontalScrollbarBarColor = true;
             this.PgEventRegistration.HorizontalScrollbarHighlightOnWheel = false;
@@ -797,7 +801,7 @@
             this.metroPanel3.HorizontalScrollbarSize = 10;
             this.metroPanel3.Location = new System.Drawing.Point(20, 20);
             this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(1278, 568);
+            this.metroPanel3.Size = new System.Drawing.Size(1276, 566);
             this.metroPanel3.TabIndex = 2;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
@@ -837,7 +841,7 @@
             this.txtDeetsVenue.CustomButton.Image = null;
             this.txtDeetsVenue.CustomButton.Location = new System.Drawing.Point(393, 1);
             this.txtDeetsVenue.CustomButton.Name = "";
-            this.txtDeetsVenue.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDeetsVenue.CustomButton.Size = new System.Drawing.Size(19, 19);
             this.txtDeetsVenue.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDeetsVenue.CustomButton.TabIndex = 1;
             this.txtDeetsVenue.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -855,7 +859,7 @@
             this.txtDeetsVenue.SelectionLength = 0;
             this.txtDeetsVenue.SelectionStart = 0;
             this.txtDeetsVenue.ShortcutsEnabled = true;
-            this.txtDeetsVenue.Size = new System.Drawing.Size(415, 23);
+            this.txtDeetsVenue.Size = new System.Drawing.Size(413, 21);
             this.txtDeetsVenue.TabIndex = 13;
             this.txtDeetsVenue.UseSelectable = true;
             this.txtDeetsVenue.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -872,7 +876,7 @@
             this.txtDeetsEventDate.CustomButton.Image = null;
             this.txtDeetsEventDate.CustomButton.Location = new System.Drawing.Point(393, 1);
             this.txtDeetsEventDate.CustomButton.Name = "";
-            this.txtDeetsEventDate.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtDeetsEventDate.CustomButton.Size = new System.Drawing.Size(19, 19);
             this.txtDeetsEventDate.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.txtDeetsEventDate.CustomButton.TabIndex = 1;
             this.txtDeetsEventDate.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -890,7 +894,7 @@
             this.txtDeetsEventDate.SelectionLength = 0;
             this.txtDeetsEventDate.SelectionStart = 0;
             this.txtDeetsEventDate.ShortcutsEnabled = true;
-            this.txtDeetsEventDate.Size = new System.Drawing.Size(415, 23);
+            this.txtDeetsEventDate.Size = new System.Drawing.Size(413, 21);
             this.txtDeetsEventDate.TabIndex = 12;
             this.txtDeetsEventDate.UseSelectable = true;
             this.txtDeetsEventDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -942,7 +946,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoEventRegistration.Location = new System.Drawing.Point(264, 339);
             this.btnGoEventRegistration.Name = "btnGoEventRegistration";
-            this.btnGoEventRegistration.Size = new System.Drawing.Size(716, 101);
+            this.btnGoEventRegistration.Size = new System.Drawing.Size(714, 99);
             this.btnGoEventRegistration.TabIndex = 8;
             this.btnGoEventRegistration.Text = "Go!";
             this.btnGoEventRegistration.UseSelectable = true;
@@ -957,7 +961,7 @@
             this.cmbEvent.ItemHeight = 23;
             this.cmbEvent.Location = new System.Drawing.Point(379, 96);
             this.cmbEvent.Name = "cmbEvent";
-            this.cmbEvent.Size = new System.Drawing.Size(477, 29);
+            this.cmbEvent.Size = new System.Drawing.Size(475, 29);
             this.cmbEvent.TabIndex = 7;
             this.cmbEvent.UseSelectable = true;
             // 
@@ -976,6 +980,7 @@
             // 
             // PgReports
             // 
+            this.PgReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PgReports.HorizontalScrollbarBarColor = true;
             this.PgReports.HorizontalScrollbarHighlightOnWheel = false;
             this.PgReports.HorizontalScrollbarSize = 10;

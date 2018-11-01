@@ -9,9 +9,6 @@
 
 namespace test
 {
-    using System;
-    using System.Collections.Generic;
-    
     public partial class IS_Events
     {
         public long EventID { get; set; }

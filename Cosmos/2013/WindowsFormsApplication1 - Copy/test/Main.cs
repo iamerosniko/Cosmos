@@ -7,14 +7,13 @@ namespace test
     public partial class Main : MetroForm
     {
 
+        testEntities context;
         BW_Employees myemployees;
         BW_Events myevents;
         public Main()
         {
             InitializeComponent();
-            testEntities context = new testEntities();
-
-
+            context = new testEntities();
             myemployees = new BW_Employees(context);
             myevents = new BW_Events(context);
 
@@ -103,7 +102,7 @@ namespace test
         private void btnGoEventRegistration_Click(object sender, System.EventArgs e)
         {
             var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
-            Registration r = new Registration(a.EventName);
+            Registration r = new Registration(a.EventID.ToString(), context);
             r.ShowDialog();
         }
 
