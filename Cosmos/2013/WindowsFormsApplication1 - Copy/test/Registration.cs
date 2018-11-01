@@ -1,10 +1,13 @@
 ﻿using MetroFramework.Forms;
+using System.Drawing;
+using System.Windows.Forms;
 using test.BW;
 
 namespace test
 {
     public partial class Registration : MetroForm
     {
+        IS_Employees employee;
         private string _eventID;
         private BW_Employees _bwEmployees;
         private BW_Events _bwEvents;
@@ -23,6 +26,40 @@ namespace test
             var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
 
             this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation;
+
+            PnlMain.Location = new Point(
+                this.ClientSize.Width / 2 - PnlMain.Size.Width / 2,
+                this.ClientSize.Height / 2 - PnlMain.Size.Height / 2);
+            PnlMain.Anchor = AnchorStyles.None;
+        }
+
+        private void txtWorkdayID_Leave(object sender, System.EventArgs e)
+        {
+            employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text);
+
+            if (employee == null)
+            {
+                txtEmployee.Clear();
+                txtLeader.Clear();
+                txtTeam.Clear();
+            }
+            else
+            {
+                txtEmployee.Text = employee.EmployeeName;
+                txtLeader.Text = employee.EmployeeTeamLeader;
+                txtTeam.Text = employee.EmployeeTeam;
+
+            }
+
+            btnRegister.Enabled = true;
+        }
+
+        private void btnRegister_Click(object sender, System.EventArgs e)
+        {
+            if (employee == null)
+            {
+                MessageBox.Show("No Employee Found.");
+            }
         }
     }
 }
