@@ -13,8 +13,10 @@ namespace test
         private BW_Employees _bwEmployees;
         private BW_Events _bwEvents;
         private BW_EventRegistration _bwEventRegistration;
-        public Registration(string eventID, testEntities context)
+        Main _main;
+        public Registration(string eventID, testEntities context, Main main)
         {
+            _main = main;
             _eventID = eventID;
             _bwEmployees = new BW_Employees(context);
             _bwEventRegistration = new BW_EventRegistration(context);
@@ -89,6 +91,7 @@ namespace test
                     MessageBox.Show("Already Registered");
                 }
                 ClearAll();
+                _main.btnRefresh_Click(sender, e);
             }
         }
 

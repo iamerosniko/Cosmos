@@ -1,4 +1,6 @@
 ﻿using MetroFramework.Forms;
+using System;
+using System.IO;
 using System.Windows.Forms;
 using test.BW;
 
@@ -10,13 +12,14 @@ namespace test
         testEntities context;
         BW_Employees myemployees;
         BW_Events myevents;
+        BW_EventRegistration myeventRegistration;
         public Main()
         {
             InitializeComponent();
             context = new testEntities();
             myemployees = new BW_Employees(context);
             myevents = new BW_Events(context);
-
+            myeventRegistration = new BW_EventRegistration(context);
         }
 
         #region EMPLOYEES
@@ -62,10 +65,11 @@ namespace test
             }
         }
 
-        private void btnRefresh_Click(object sender, System.EventArgs e)
+        public void btnRefresh_Click(object sender, System.EventArgs e)
         {
             GetEmployees();
             GetEvents();
+            GetRegisteredEmployees();
         }
 
         #endregion
@@ -76,21 +80,15 @@ namespace test
         {
             var listEvents = myevents.Get();
             GridEvents.DataSource = listEvents;
-            GridEmployees.Columns[0].Visible = false;
-            GridEmployees.Columns[1].HeaderText = "Event";
-            GridEmployees.Columns[2].HeaderText = "Event Date";
-            GridEmployees.Columns[3].HeaderText = "Venue";
+            GridEvents.Columns[0].Visible = false;
+            GridEvents.Columns[1].HeaderText = "Event";
+            GridEvents.Columns[2].HeaderText = "Event Date";
+            GridEvents.Columns[3].HeaderText = "Venue";
             cmbEvent.DataSource = listEvents;
             cmbEvent.DisplayMember = "EventName";
             cmbEvent.ValueMember = "EventID";
         }
-        #endregion
 
-        private void Main_Load(object sender, System.EventArgs e)
-        {
-            GetEmployees();
-            GetEvents();
-        }
 
         private void btnEventCheck_Click(object sender, System.EventArgs e)
         {
@@ -102,7 +100,7 @@ namespace test
         private void btnGoEventRegistration_Click(object sender, System.EventArgs e)
         {
             var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
-            Registration r = new Registration(a.EventID.ToString(), context);
+            Registration r = new Registration(a.EventID.ToString(), context, this);
             r.ShowDialog();
         }
 
@@ -133,6 +131,87 @@ namespace test
                 var result = myevents.Post(isEvent);
                 if (result == true) MessageBox.Show("Event Successfully Added."); else MessageBox.Show("Workday ID Already Exists.");
                 btnRefresh_Click(sender, e);
+            }
+        }
+
+        #endregion
+
+        #region EVENTREGISTRATION
+        public void GetRegisteredEmployees()
+        {
+            GridEventRegistered.DataSource = myeventRegistration.Get();
+            GridEventRegistered.Columns[0].HeaderText = "Event";
+            GridEventRegistered.Columns[1].HeaderText = "Workday ID";
+            GridEventRegistered.Columns[2].HeaderText = "Employee";
+            GridEventRegistered.Columns[3].HeaderText = "Date Registered";
+        }
+        #endregion
+        private void Main_Load(object sender, System.EventArgs e)
+        {
+            GetEmployees();
+            GetEvents();
+            GetRegisteredEmployees();
+        }
+
+
+        private void TileRptEmp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GridEmployees.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                // Select all the cells
+                GridEmployees.SelectAll();
+                DataObject dataObject = GridEmployees.GetClipboardContent();
+                // Copy selected cells to DataObject
+                var filename = "Employees_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + ".csv";
+                // Get the text of the DataObject, and serialize it to a file
+                File.WriteAllText(".\\Export\\" + filename, dataObject.GetText(TextDataFormat.CommaSeparatedValue));
+                System.Diagnostics.Process.Start("explorer.exe", @".\Export");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void TileRptEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GridEvents.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                // Select all the cells
+                GridEvents.SelectAll();
+                // Copy selected cells to DataObject
+                DataObject dataObject = GridEvents.GetClipboardContent();
+                var filename = "Events_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + ".csv";
+                // Get the text of the DataObject, and serialize it to a file
+                File.WriteAllText(".\\Export\\" + filename, dataObject.GetText(TextDataFormat.CommaSeparatedValue));
+                System.Diagnostics.Process.Start("explorer.exe", @".\Export");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void TileRptEventRegistration_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                GridEventRegistered.ClipboardCopyMode = DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+                // Select all the cells
+                GridEventRegistered.SelectAll();
+                // Copy selected cells to DataObject
+                DataObject dataObject = GridEventRegistered.GetClipboardContent();
+                var filename = "EventsRegistered_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + ".csv";
+                // Get the text of the DataObject, and serialize it to a file
+                File.WriteAllText(".\\Export\\" + filename, dataObject.GetText(TextDataFormat.CommaSeparatedValue));
+                System.Diagnostics.Process.Start("explorer.exe", @".\Export");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
