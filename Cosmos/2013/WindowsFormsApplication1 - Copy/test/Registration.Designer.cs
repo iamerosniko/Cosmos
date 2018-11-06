@@ -84,7 +84,7 @@
             this.txtLeader.CustomButton.UseSelectable = true;
             this.txtLeader.CustomButton.Visible = false;
             this.txtLeader.Lines = new string[0];
-            this.txtLeader.Location = new System.Drawing.Point(135, 240);
+            this.txtLeader.Location = new System.Drawing.Point(135, 275);
             this.txtLeader.MaxLength = 32767;
             this.txtLeader.Name = "txtLeader";
             this.txtLeader.PasswordChar = '\0';
@@ -115,7 +115,7 @@
             this.txtTeam.CustomButton.UseSelectable = true;
             this.txtTeam.CustomButton.Visible = false;
             this.txtTeam.Lines = new string[0];
-            this.txtTeam.Location = new System.Drawing.Point(135, 174);
+            this.txtTeam.Location = new System.Drawing.Point(135, 209);
             this.txtTeam.MaxLength = 32767;
             this.txtTeam.Name = "txtTeam";
             this.txtTeam.PasswordChar = '\0';
@@ -146,7 +146,7 @@
             this.txtEmployee.CustomButton.UseSelectable = true;
             this.txtEmployee.CustomButton.Visible = false;
             this.txtEmployee.Lines = new string[0];
-            this.txtEmployee.Location = new System.Drawing.Point(135, 111);
+            this.txtEmployee.Location = new System.Drawing.Point(135, 146);
             this.txtEmployee.MaxLength = 32767;
             this.txtEmployee.Name = "txtEmployee";
             this.txtEmployee.PasswordChar = '\0';
@@ -177,7 +177,7 @@
             this.txtWorkdayID.CustomButton.UseSelectable = true;
             this.txtWorkdayID.CustomButton.Visible = false;
             this.txtWorkdayID.Lines = new string[0];
-            this.txtWorkdayID.Location = new System.Drawing.Point(135, 51);
+            this.txtWorkdayID.Location = new System.Drawing.Point(135, 86);
             this.txtWorkdayID.MaxLength = 32767;
             this.txtWorkdayID.Name = "txtWorkdayID";
             this.txtWorkdayID.PasswordChar = '\0';
@@ -196,7 +196,7 @@
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(241, 360);
+            this.btnRegister.Location = new System.Drawing.Point(241, 372);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(109, 49);
             this.btnRegister.TabIndex = 6;
@@ -208,7 +208,7 @@
             // 
             this.lblTL.AutoSize = true;
             this.lblTL.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTL.Location = new System.Drawing.Point(239, 217);
+            this.lblTL.Location = new System.Drawing.Point(239, 252);
             this.lblTL.Name = "lblTL";
             this.lblTL.Size = new System.Drawing.Size(129, 20);
             this.lblTL.TabIndex = 5;
@@ -218,7 +218,7 @@
             // 
             this.lblTeam.AutoSize = true;
             this.lblTeam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTeam.Location = new System.Drawing.Point(272, 151);
+            this.lblTeam.Location = new System.Drawing.Point(269, 186);
             this.lblTeam.Name = "lblTeam";
             this.lblTeam.Size = new System.Drawing.Size(63, 20);
             this.lblTeam.TabIndex = 4;
@@ -228,7 +228,7 @@
             // 
             this.lblEmp.AutoSize = true;
             this.lblEmp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmp.Location = new System.Drawing.Point(232, 88);
+            this.lblEmp.Location = new System.Drawing.Point(232, 123);
             this.lblEmp.Name = "lblEmp";
             this.lblEmp.Size = new System.Drawing.Size(148, 20);
             this.lblEmp.TabIndex = 3;
@@ -238,7 +238,7 @@
             // 
             this.lblWDID.AutoSize = true;
             this.lblWDID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWDID.Location = new System.Drawing.Point(251, 28);
+            this.lblWDID.Location = new System.Drawing.Point(251, 63);
             this.lblWDID.Name = "lblWDID";
             this.lblWDID.Size = new System.Drawing.Size(117, 20);
             this.lblWDID.TabIndex = 2;
@@ -260,6 +260,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1362, 730);
             this.Controls.Add(this.lblRegistrationName);
             this.Controls.Add(this.PnlMain);
