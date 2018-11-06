@@ -94,6 +94,10 @@
             this.TileRptEvent = new MetroFramework.Controls.MetroTile();
             this.TileRptEmp = new MetroFramework.Controls.MetroTile();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
+            this.txtEventThemePath = new MetroFramework.Controls.MetroTextBox();
+            this.btnEventThemeFIleSearcher = new MetroFramework.Controls.MetroButton();
+            this.chkbIsWhiteFont = new MetroFramework.Controls.MetroCheckBox();
             this.TCMain.SuspendLayout();
             this.PGEmployee.SuspendLayout();
             this.TCEmp.SuspendLayout();
@@ -603,6 +607,10 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.chkbIsWhiteFont);
+            this.panel1.Controls.Add(this.btnEventThemeFIleSearcher);
+            this.panel1.Controls.Add(this.metroLabel18);
+            this.panel1.Controls.Add(this.txtEventThemePath);
             this.panel1.Controls.Add(this.txtEventDate);
             this.panel1.Controls.Add(this.btnSaveEvent);
             this.panel1.Controls.Add(this.metroLabel10);
@@ -629,7 +637,7 @@
             this.txtEventDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtEventDate.Location = new System.Drawing.Point(13, 227);
+            this.txtEventDate.Location = new System.Drawing.Point(17, 169);
             this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(312, 29);
@@ -645,11 +653,12 @@
             this.btnSaveEvent.TabIndex = 15;
             this.btnSaveEvent.Text = "Save";
             this.btnSaveEvent.UseSelectable = true;
+            this.btnSaveEvent.Click += new System.EventHandler(this.btnSaveEvent_Click);
             // 
             // metroLabel10
             // 
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(9, 281);
+            this.metroLabel10.Location = new System.Drawing.Point(13, 203);
             this.metroLabel10.Name = "metroLabel10";
             this.metroLabel10.Size = new System.Drawing.Size(44, 19);
             this.metroLabel10.TabIndex = 23;
@@ -658,7 +667,7 @@
             // metroLabel11
             // 
             this.metroLabel11.AutoSize = true;
-            this.metroLabel11.Location = new System.Drawing.Point(9, 205);
+            this.metroLabel11.Location = new System.Drawing.Point(13, 147);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(71, 19);
             this.metroLabel11.TabIndex = 22;
@@ -667,7 +676,7 @@
             // metroLabel12
             // 
             this.metroLabel12.AutoSize = true;
-            this.metroLabel12.Location = new System.Drawing.Point(9, 127);
+            this.metroLabel12.Location = new System.Drawing.Point(13, 99);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(40, 19);
             this.metroLabel12.TabIndex = 21;
@@ -690,7 +699,7 @@
             this.txtVenue.CustomButton.UseSelectable = true;
             this.txtVenue.CustomButton.Visible = false;
             this.txtVenue.Lines = new string[0];
-            this.txtVenue.Location = new System.Drawing.Point(13, 303);
+            this.txtVenue.Location = new System.Drawing.Point(17, 225);
             this.txtVenue.MaxLength = 32767;
             this.txtVenue.Name = "txtVenue";
             this.txtVenue.PasswordChar = '\0';
@@ -722,7 +731,7 @@
             this.txtEventName.CustomButton.UseSelectable = true;
             this.txtEventName.CustomButton.Visible = false;
             this.txtEventName.Lines = new string[0];
-            this.txtEventName.Location = new System.Drawing.Point(13, 149);
+            this.txtEventName.Location = new System.Drawing.Point(17, 121);
             this.txtEventName.MaxLength = 32767;
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.PasswordChar = '\0';
@@ -1146,6 +1155,69 @@
             this.metroLabel17.TabIndex = 2;
             this.metroLabel17.Text = "Version 1.0.0.1";
             // 
+            // metroLabel18
+            // 
+            this.metroLabel18.AutoSize = true;
+            this.metroLabel18.Location = new System.Drawing.Point(13, 255);
+            this.metroLabel18.Name = "metroLabel18";
+            this.metroLabel18.Size = new System.Drawing.Size(123, 19);
+            this.metroLabel18.TabIndex = 25;
+            this.metroLabel18.Text = "Background Theme";
+            // 
+            // txtEventThemePath
+            // 
+            this.txtEventThemePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtEventThemePath.CustomButton.Image = null;
+            this.txtEventThemePath.CustomButton.Location = new System.Drawing.Point(261, 1);
+            this.txtEventThemePath.CustomButton.Name = "";
+            this.txtEventThemePath.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtEventThemePath.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtEventThemePath.CustomButton.TabIndex = 1;
+            this.txtEventThemePath.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtEventThemePath.CustomButton.UseSelectable = true;
+            this.txtEventThemePath.CustomButton.Visible = false;
+            this.txtEventThemePath.Lines = new string[0];
+            this.txtEventThemePath.Location = new System.Drawing.Point(17, 277);
+            this.txtEventThemePath.MaxLength = 32767;
+            this.txtEventThemePath.Name = "txtEventThemePath";
+            this.txtEventThemePath.PasswordChar = '\0';
+            this.txtEventThemePath.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEventThemePath.SelectedText = "";
+            this.txtEventThemePath.SelectionLength = 0;
+            this.txtEventThemePath.SelectionStart = 0;
+            this.txtEventThemePath.ShortcutsEnabled = true;
+            this.txtEventThemePath.Size = new System.Drawing.Size(283, 23);
+            this.txtEventThemePath.TabIndex = 24;
+            this.txtEventThemePath.UseSelectable = true;
+            this.txtEventThemePath.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtEventThemePath.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // btnEventThemeFIleSearcher
+            // 
+            this.btnEventThemeFIleSearcher.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnEventThemeFIleSearcher.Location = new System.Drawing.Point(306, 277);
+            this.btnEventThemeFIleSearcher.Name = "btnEventThemeFIleSearcher";
+            this.btnEventThemeFIleSearcher.Size = new System.Drawing.Size(23, 23);
+            this.btnEventThemeFIleSearcher.TabIndex = 26;
+            this.btnEventThemeFIleSearcher.Text = "...";
+            this.btnEventThemeFIleSearcher.UseSelectable = true;
+            this.btnEventThemeFIleSearcher.Click += new System.EventHandler(this.btnEventThemeFIleSearcher_Click);
+            // 
+            // chkbIsWhiteFont
+            // 
+            this.chkbIsWhiteFont.AutoSize = true;
+            this.chkbIsWhiteFont.Location = new System.Drawing.Point(17, 315);
+            this.chkbIsWhiteFont.Name = "chkbIsWhiteFont";
+            this.chkbIsWhiteFont.Size = new System.Drawing.Size(208, 15);
+            this.chkbIsWhiteFont.TabIndex = 27;
+            this.chkbIsWhiteFont.Text = "Use White Text to this Background?";
+            this.chkbIsWhiteFont.UseSelectable = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1246,6 +1318,10 @@
         private System.Windows.Forms.TableLayoutPanel tplEventsLists;
         private MetroFramework.Controls.MetroGrid GridEvents;
         private MetroFramework.Controls.MetroLabel metroLabel8;
+        private MetroFramework.Controls.MetroLabel metroLabel18;
+        private MetroFramework.Controls.MetroTextBox txtEventThemePath;
+        private MetroFramework.Controls.MetroButton btnEventThemeFIleSearcher;
+        private MetroFramework.Controls.MetroCheckBox chkbIsWhiteFont;
     }
 }
 

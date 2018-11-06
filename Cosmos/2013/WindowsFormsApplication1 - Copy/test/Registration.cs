@@ -1,11 +1,10 @@
-﻿using MetroFramework.Forms;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 using test.BW;
 
 namespace test
 {
-    public partial class Registration : MetroForm
+    public partial class Registration : Form
     {
         IS_Employees employee;
         private string _eventID;
@@ -27,12 +26,26 @@ namespace test
         {
             var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
 
-            this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation;
-
+            this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation + "                  RESOLUTION : " + this.ClientSize.Width + "x" + this.ClientSize.Height;
+            //this.lblRegistrationName.Text = Text;
+            this.lblRegistrationName.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation;
+            //this.label1.Text = this.Text;
             PnlMain.Location = new Point(
                 this.ClientSize.Width / 2 - PnlMain.Size.Width / 2,
                 this.ClientSize.Height / 2 - PnlMain.Size.Height / 2);
             PnlMain.Anchor = AnchorStyles.None;
+
+            try
+            {
+                Image myimage = Image.FromFile(@".\Event Theme\" + myEvent.EventTheme);
+                //Image myimage = new Bitmap(@".\Event Theme\" + myEvent.EventTheme);
+                BackgroundImage = myimage;
+                BackgroundImageLayout = ImageLayout.Stretch;
+            }
+            catch
+            {
+                BackgroundImage = null;
+            }
         }
 
         public void ClearAll()

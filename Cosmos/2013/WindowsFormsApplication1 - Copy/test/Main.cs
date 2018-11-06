@@ -99,11 +99,38 @@ namespace test
             GridEvents.Columns[1].HeaderText = "Event";
             GridEvents.Columns[2].HeaderText = "Event Date";
             GridEvents.Columns[3].HeaderText = "Venue";
+            GridEvents.Columns[4].HeaderText = "Image Theme";
+            GridEvents.Columns[5].Visible = false;
+
             cmbEvent.DataSource = listEvents;
             cmbEvent.DisplayMember = "EventName";
             cmbEvent.ValueMember = "EventID";
         }
+        private void btnEventThemeFIleSearcher_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.jpg)|*.jpg";
+            int size = -1;
+            DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog.FileName;
+                try
+                {
+                    txtEventThemePath.Text = openFileDialog.SafeFileName;
+                    string text = File.ReadAllText(file);
+                    size = text.Length;
 
+                    string targetPath = @".\Event Theme";
+                    File.Copy(openFileDialog.FileName, targetPath + @"\" + openFileDialog.SafeFileName, true);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
 
         private void btnEventCheck_Click(object sender, System.EventArgs e)
         {
@@ -125,7 +152,9 @@ namespace test
             {
                 EventDate = txtEventDate.Value.ToShortDateString(),
                 EventLocation = txtVenue.Text,
-                EventName = txtEventName.Text
+                EventName = txtEventName.Text,
+                EventTheme = txtEventThemePath.Text,
+                EventIsDark = chkbIsWhiteFont.Checked ? long.Parse("1") : long.Parse("0")
             };
 
             if (isEvent.EventName.Trim().Equals(""))
@@ -140,7 +169,7 @@ namespace test
             {
                 MessageBox.Show("Event Date is Required.");
             }
-
+            //else if ()
             else
             {
                 var result = myevents.Post(isEvent);
@@ -163,14 +192,8 @@ namespace test
             GridEventRegistered.Columns[5].HeaderText = "Date Registered";
         }
         #endregion
-        private void Main_Load(object sender, System.EventArgs e)
-        {
-            GetEmployees();
-            GetEvents();
-            GetRegisteredEmployees();
-        }
 
-
+        #region REPORTS
         private void TileRptEmp_Click(object sender, EventArgs e)
         {
             try
@@ -231,5 +254,16 @@ namespace test
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        #endregion
+
+        private void Main_Load(object sender, System.EventArgs e)
+        {
+            GetEmployees();
+            GetEvents();
+            GetRegisteredEmployees();
+        }
+
+
     }
 }
