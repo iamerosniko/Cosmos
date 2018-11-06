@@ -1,7 +1,3 @@
-*Event UI dynamic pic 
-
-*employee - bulk insertion - 
-
 
 Done
 *event registration - team and team leader - done
@@ -9,3 +5,7 @@ Done
 *Event Registration - employee not found - ask add this as new employee? yes then add to employee then add to event registration - done
 *Event registration - emp not  found - auto insert - done
 *Reports - Event Filtering - sort ascending of time  - done
+*Event UI dynamic pic 
+*employee - bulk insertion - done - concern - font color
+
+

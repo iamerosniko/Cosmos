@@ -37,15 +37,35 @@ namespace test
 
             try
             {
+
+                if (myEvent.EventIsDark.Value == 1)
+                {
+                    lblEmp.ForeColor = Color.White;
+                    lblRegistrationName.ForeColor = Color.White;
+                    lblTeam.ForeColor = Color.White;
+                    lblTL.ForeColor = Color.White;
+                    lblWDID.ForeColor = Color.White;
+                }
+                else
+                {
+                    lblEmp.ForeColor = Color.Black;
+                    lblRegistrationName.ForeColor = Color.Black;
+                    lblTeam.ForeColor = Color.Black;
+                    lblTL.ForeColor = Color.Black;
+                    lblWDID.ForeColor = Color.Black;
+
+                }
                 Image myimage = Image.FromFile(@".\Event Theme\" + myEvent.EventTheme);
                 //Image myimage = new Bitmap(@".\Event Theme\" + myEvent.EventTheme);
                 BackgroundImage = myimage;
                 BackgroundImageLayout = ImageLayout.Stretch;
+
             }
             catch
             {
                 BackgroundImage = null;
             }
+
         }
 
         public void ClearAll()
