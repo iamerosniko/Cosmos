@@ -1,5 +1,5 @@
 *Event UI dynamic pic 
-*Reports - Event Filtering - sort ascending of time 
+
 *employee - bulk insertion - 
 
 
@@ -8,3 +8,4 @@ Done
 *Event registration - event date in with hh:mm:ss - done
 *Event Registration - employee not found - ask add this as new employee? yes then add to employee then add to event registration - done
 *Event registration - emp not  found - auto insert - done
+*Reports - Event Filtering - sort ascending of time  - done
