@@ -1,5 +1,4 @@
 ﻿using MetroFramework.Forms;
-using System;
 using System.Drawing;
 using System.Windows.Forms;
 using test.BW;
@@ -44,55 +43,75 @@ namespace test
             txtWorkdayID.Clear();
         }
 
-        private void txtWorkdayID_Leave(object sender, System.EventArgs e)
-        {
-            employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text);
-
-            if (employee == null)
-            {
-                txtEmployee.Clear();
-                txtLeader.Clear();
-                txtTeam.Clear();
-            }
-            else
-            {
-                txtEmployee.Text = employee.EmployeeName;
-                txtLeader.Text = employee.EmployeeTeamLeader;
-                txtTeam.Text = employee.EmployeeTeam;
-
-            }
-
-            btnRegister.Enabled = true;
-        }
 
         private void btnRegister_Click(object sender, System.EventArgs e)
         {
-            if (employee == null)
+            if (txtWorkdayID.Text.Trim().Equals(""))
             {
-                MessageBox.Show("No Employee Found.");
+                MessageBox.Show("Please provide Workday ID first");
             }
             else
             {
-                IS_EventRegistration registration = new IS_EventRegistration
+                if (employee == null)
                 {
-                    EventID = long.Parse(_eventID),
-                    EventRegistrationSignedDate = DateTime.Now.ToShortDateString(),
-                    WorkdayID = employee.WorkdayID
-                };
+                    DialogResult dialogResult = MessageBox.Show("Do you want to add this as new Employee?", "Employee Not Found", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
 
-                var result = _bwEventRegistration.Post(registration);
+                        IS_Employees emp = new IS_Employees
+                        {
+                            EmployeeName = txtEmployee.Text,
+                            WorkdayID = txtWorkdayID.Text,
+                            EmployeeTeam = txtTeam.Text,
+                            EmployeeTeamLeader = txtLeader.Text
+                        };
 
-                if (result)
-                {
-                    MessageBox.Show("Successfully Registered.");
+                        _bwEmployees.Post(emp);
+
+                        IS_EventRegistration registration = new IS_EventRegistration
+                        {
+                            EventID = long.Parse(_eventID),
+                            WorkdayID = txtWorkdayID.Text.Trim()
+                        };
+
+                        var result = _bwEventRegistration.Post(registration);
+
+                        if (result)
+                        {
+                            MessageBox.Show("Successfully Registered.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Already Registered");
+                        }
+                        ClearAll();
+                        _main.btnRefresh_Click(sender, e);
+
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Already Registered");
+                    IS_EventRegistration registration = new IS_EventRegistration
+                    {
+                        EventID = long.Parse(_eventID),
+                        WorkdayID = employee.WorkdayID
+                    };
+
+                    var result = _bwEventRegistration.Post(registration);
+
+                    if (result)
+                    {
+                        MessageBox.Show("Successfully Registered.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Already Registered");
+                    }
+                    ClearAll();
+                    _main.btnRefresh_Click(sender, e);
                 }
-                ClearAll();
-                _main.btnRefresh_Click(sender, e);
             }
+
         }
 
         private void txtWorkdayID_KeyUp(object sender, KeyEventArgs e)
@@ -104,12 +123,18 @@ namespace test
                 txtEmployee.Clear();
                 txtLeader.Clear();
                 txtTeam.Clear();
+                txtEmployee.Enabled = true;
+                txtLeader.Enabled = true;
+                txtTeam.Enabled = true;
             }
             else
             {
                 txtEmployee.Text = employee.EmployeeName;
                 txtLeader.Text = employee.EmployeeTeamLeader;
                 txtTeam.Text = employee.EmployeeTeam;
+                txtEmployee.Enabled = false;
+                txtLeader.Enabled = false;
+                txtTeam.Enabled = false;
 
             }
 

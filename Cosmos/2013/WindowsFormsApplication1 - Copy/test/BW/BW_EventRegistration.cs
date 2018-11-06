@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using test.DTO;
 
@@ -19,7 +20,7 @@ namespace test.BW
 
         public List<EventRegistered> Get()
         {
-            var eventRegistratonList = context.IS_EventRegistration.ToList();
+            var eventRegistratonList = context.IS_EventRegistration.OrderBy(x => x.EventRegistrationSignedDate).ToList();
             List<EventRegistered> registeredEmployees = new List<EventRegistered>();
             foreach (var eRL in eventRegistratonList)
             {
@@ -33,7 +34,9 @@ namespace test.BW
                         EmployeeName = tempEmp.EmployeeName,
                         EventName = tempEvnt.EventName,
                         EventRegistrationSignedDate = eRL.EventRegistrationSignedDate,
-                        WorkdayID = tempEmp.WorkdayID
+                        WorkdayID = tempEmp.WorkdayID,
+                        TeamName = tempEmp.EmployeeTeam,
+                        TeamLeader = tempEmp.EmployeeTeamLeader
                     });
                 }
             }
@@ -47,6 +50,9 @@ namespace test.BW
                 .Find(x => x.EventID == registration.EventID && x.WorkdayID == registration.WorkdayID);
             if (registered == null)
             {
+                //EventRegistrationSignedDate = DateTime.Now.ToShortDateString(),
+
+                registration.EventRegistrationSignedDate = DateTime.Now.ToShortDateString() + "-" + DateTime.Now.ToShortTimeString();
                 context.IS_EventRegistration.Add(registration);
                 context.SaveChanges();
                 return true;

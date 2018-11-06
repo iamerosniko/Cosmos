@@ -1,7 +1,10 @@
-Event registration - emp not  found - auto insert
-Event UI dynamic pic 
-Event registration - event date in with hh:mm:ss
-Event Registration - employee not found - ask add this as new employee? yes then add to employee then add to event registration
-Reports - Event Filtering - sort ascending of time 
-employee - bulk insertion - 
+*Event UI dynamic pic 
+*Reports - Event Filtering - sort ascending of time 
+*employee - bulk insertion - 
 
+
+Done
+*event registration - team and team leader - done
+*Event registration - event date in with hh:mm:ss - done
+*Event Registration - employee not found - ask add this as new employee? yes then add to employee then add to event registration - done
+*Event registration - emp not  found - auto insert - done

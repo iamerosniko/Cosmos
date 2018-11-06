@@ -1,14 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
-    <EntitySetMapping Name="testtable1">
-      <EntityTypeMapping TypeName="testModel.testtable1">
-        <MappingFragment StoreEntitySet="testtable1">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="IS_Employees">
       <EntityTypeMapping TypeName="testModel.IS_Employees">
         <MappingFragment StoreEntitySet="IS_Employees">
@@ -19,16 +11,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="IS_Events">
-      <EntityTypeMapping TypeName="testModel.IS_Events">
-        <MappingFragment StoreEntitySet="IS_Events">
-          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
-          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
-          <ScalarProperty Name="EventName" ColumnName="EventName" />
-          <ScalarProperty Name="EventID" ColumnName="EventID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="IS_EventRegistration">
       <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
         <MappingFragment StoreEntitySet="IS_EventRegistration">
@@ -36,6 +18,18 @@
           <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
           <ScalarProperty Name="EventID" ColumnName="EventID" />
           <ScalarProperty Name="EventRegistrationID" ColumnName="EventRegistrationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IS_Events">
+      <EntityTypeMapping TypeName="testModel.IS_Events">
+        <MappingFragment StoreEntitySet="IS_Events">
+          <ScalarProperty Name="EventIsDark" ColumnName="EventIsDark" />
+          <ScalarProperty Name="EventTheme" ColumnName="EventTheme" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

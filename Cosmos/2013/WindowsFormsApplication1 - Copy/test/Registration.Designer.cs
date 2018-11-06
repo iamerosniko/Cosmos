@@ -100,7 +100,6 @@
             this.txtLeader.MaxLength = 32767;
             this.txtLeader.Name = "txtLeader";
             this.txtLeader.PasswordChar = '\0';
-            this.txtLeader.ReadOnly = true;
             this.txtLeader.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtLeader.SelectedText = "";
             this.txtLeader.SelectionLength = 0;
@@ -108,7 +107,6 @@
             this.txtLeader.ShortcutsEnabled = true;
             this.txtLeader.Size = new System.Drawing.Size(328, 23);
             this.txtLeader.TabIndex = 10;
-            this.txtLeader.TabStop = false;
             this.txtLeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLeader.UseSelectable = true;
             this.txtLeader.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -144,7 +142,6 @@
             this.txtTeam.MaxLength = 32767;
             this.txtTeam.Name = "txtTeam";
             this.txtTeam.PasswordChar = '\0';
-            this.txtTeam.ReadOnly = true;
             this.txtTeam.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTeam.SelectedText = "";
             this.txtTeam.SelectionLength = 0;
@@ -152,7 +149,6 @@
             this.txtTeam.ShortcutsEnabled = true;
             this.txtTeam.Size = new System.Drawing.Size(328, 23);
             this.txtTeam.TabIndex = 9;
-            this.txtTeam.TabStop = false;
             this.txtTeam.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtTeam.UseSelectable = true;
             this.txtTeam.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -177,7 +173,6 @@
             this.txtEmployee.MaxLength = 32767;
             this.txtEmployee.Name = "txtEmployee";
             this.txtEmployee.PasswordChar = '\0';
-            this.txtEmployee.ReadOnly = true;
             this.txtEmployee.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtEmployee.SelectedText = "";
             this.txtEmployee.SelectionLength = 0;
@@ -185,7 +180,6 @@
             this.txtEmployee.ShortcutsEnabled = true;
             this.txtEmployee.Size = new System.Drawing.Size(328, 23);
             this.txtEmployee.TabIndex = 8;
-            this.txtEmployee.TabStop = false;
             this.txtEmployee.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtEmployee.UseSelectable = true;
             this.txtEmployee.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -222,7 +216,6 @@
             this.txtWorkdayID.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtWorkdayID.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtWorkdayID.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtWorkdayID_KeyUp);
-            this.txtWorkdayID.Leave += new System.EventHandler(this.txtWorkdayID_Leave);
             // 
             // btnRegister
             // 

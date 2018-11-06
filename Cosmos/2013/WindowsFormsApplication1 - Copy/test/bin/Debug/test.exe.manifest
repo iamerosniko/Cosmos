@@ -336,14 +336,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="test.exe" size="56312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="test.exe" size="57336">
       <assemblyIdentity name="test" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>52CNenz3uOR3qlcWuNDvaWv2E3GxvCCuZsTIb2pHX54=</dsig:DigestValue>
+        <dsig:DigestValue>5YSVgVKzDYuOegb+H8M7re3/f04mVePsRV4Qa+COoFA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -371,7 +371,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>t37hRGg5mUAPSvqf5Ykai5vPnbhxfurj34mZU/oVmSY=</dsig:DigestValue>
+      <dsig:DigestValue>8xi+HtycZjzDW3bFj6IAYJmIiDMtsL16jcSFjF/7P0E=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

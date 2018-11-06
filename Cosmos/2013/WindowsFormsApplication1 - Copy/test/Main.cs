@@ -16,10 +16,25 @@ namespace test
         public Main()
         {
             InitializeComponent();
+            CheckFolders();
             context = new testEntities();
             myemployees = new BW_Employees(context);
             myevents = new BW_Events(context);
             myeventRegistration = new BW_EventRegistration(context);
+        }
+
+        public void CheckFolders()
+        {
+            string exportPath = ".\\Export"; // your code goes here
+            string eventThemePath = ".\\Event Theme"; // your code goes here
+
+            bool isExportExists = System.IO.Directory.Exists(exportPath);
+            bool isEventThemePathExists = System.IO.Directory.Exists(eventThemePath);
+
+            if (!isExportExists)
+                System.IO.Directory.CreateDirectory(exportPath);
+            if (!isEventThemePathExists)
+                System.IO.Directory.CreateDirectory(eventThemePath);
         }
 
         #region EMPLOYEES
@@ -143,7 +158,9 @@ namespace test
             GridEventRegistered.Columns[0].HeaderText = "Event";
             GridEventRegistered.Columns[1].HeaderText = "Workday ID";
             GridEventRegistered.Columns[2].HeaderText = "Employee";
-            GridEventRegistered.Columns[3].HeaderText = "Date Registered";
+            GridEventRegistered.Columns[3].HeaderText = "Team Name";
+            GridEventRegistered.Columns[4].HeaderText = "Team Leader";
+            GridEventRegistered.Columns[5].HeaderText = "Date Registered";
         }
         #endregion
         private void Main_Load(object sender, System.EventArgs e)

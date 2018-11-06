@@ -26,18 +26,12 @@
     <Property Name="EventName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
     <Property Name="EventDate" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
     <Property Name="EventLocation" Type="nvarchar" MaxLength="2147483647" />
-  </EntityType>
-  <EntityType Name="testtable1">
-    <Key>
-      <PropertyRef Name="id" />
-    </Key>
-    <Property Name="id" Type="integer" Nullable="false" />
-    <Property Name="name" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="EventTheme" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="EventIsDark" Type="integer" />
   </EntityType>
   <EntityContainer Name="testModelStoreContainer">
     <EntitySet Name="IS_Employees" EntityType="Self.IS_Employees" store:Type="Tables" />
     <EntitySet Name="IS_EventRegistration" EntityType="Self.IS_EventRegistration" store:Type="Tables" />
     <EntitySet Name="IS_Events" EntityType="Self.IS_Events" store:Type="Tables" />
-    <EntitySet Name="testtable1" EntityType="Self.testtable1" store:Type="Tables" />
   </EntityContainer>
 </Schema>
