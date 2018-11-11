@@ -70,7 +70,7 @@ namespace test
 
         public void ClearAll()
         {
-            txtEmployee.Clear();
+            txtFirstName.Clear();
             txtLeader.Clear();
             txtTeam.Clear();
             txtWorkdayID.Clear();
@@ -93,7 +93,9 @@ namespace test
 
                         IS_Employees emp = new IS_Employees
                         {
-                            EmployeeName = txtEmployee.Text,
+                            EmployeeFirstName = txtFirstName.Text,
+                            EmployeeMiddleName = txtMiddleName.Text,
+                            EmployeeLastName = txtLastName.Text,
                             WorkdayID = txtWorkdayID.Text,
                             EmployeeTeam = txtTeam.Text,
                             EmployeeTeamLeader = txtLeader.Text
@@ -153,19 +155,27 @@ namespace test
 
             if (employee == null)
             {
-                txtEmployee.Clear();
+                txtFirstName.Clear();
+                txtMiddleName.Clear();
+                txtLastName.Clear();
                 txtLeader.Clear();
                 txtTeam.Clear();
-                txtEmployee.Enabled = true;
+                txtFirstName.Enabled = true;
+                txtMiddleName.Enabled = true;
+                txtLastName.Enabled = true;
                 txtLeader.Enabled = true;
                 txtTeam.Enabled = true;
             }
             else
             {
-                txtEmployee.Text = employee.EmployeeName;
+                txtFirstName.Text = employee.EmployeeFirstName;
+                txtLastName.Text = employee.EmployeeLastName;
+                txtMiddleName.Text = employee.EmployeeMiddleName;
                 txtLeader.Text = employee.EmployeeTeamLeader;
                 txtTeam.Text = employee.EmployeeTeam;
-                txtEmployee.Enabled = false;
+                txtFirstName.Enabled = false;
+                txtMiddleName.Enabled = false;
+                txtLastName.Enabled = false;
                 txtLeader.Enabled = false;
                 txtTeam.Enabled = false;
 

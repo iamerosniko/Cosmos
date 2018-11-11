@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
-    <EntitySetMapping Name="IS_Employees">
-      <EntityTypeMapping TypeName="testModel.IS_Employees">
-        <MappingFragment StoreEntitySet="IS_Employees">
-          <ScalarProperty Name="EmployeeTeamLeader" ColumnName="EmployeeTeamLeader" />
-          <ScalarProperty Name="EmployeeTeam" ColumnName="EmployeeTeam" />
-          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
-          <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="IS_EventRegistration">
       <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
         <MappingFragment StoreEntitySet="IS_EventRegistration">
@@ -30,6 +20,18 @@
           <ScalarProperty Name="EventDate" ColumnName="EventDate" />
           <ScalarProperty Name="EventName" ColumnName="EventName" />
           <ScalarProperty Name="EventID" ColumnName="EventID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IS_Employees">
+      <EntityTypeMapping TypeName="testModel.IS_Employees">
+        <MappingFragment StoreEntitySet="IS_Employees">
+          <ScalarProperty Name="EmployeeTeamLeader" ColumnName="EmployeeTeamLeader" />
+          <ScalarProperty Name="EmployeeTeam" ColumnName="EmployeeTeam" />
+          <ScalarProperty Name="EmployeeLastName" ColumnName="EmployeeLastName" />
+          <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
+          <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
+          <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

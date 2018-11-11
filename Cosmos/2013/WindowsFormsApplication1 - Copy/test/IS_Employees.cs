@@ -15,7 +15,9 @@ namespace test
     public partial class IS_Employees
     {
         public string WorkdayID { get; set; }
-        public string EmployeeName { get; set; }
+        public string EmployeeFirstName { get; set; }
+        public string EmployeeMiddleName { get; set; }
+        public string EmployeeLastName { get; set; }
         public string EmployeeTeam { get; set; }
         public string EmployeeTeamLeader { get; set; }
     }

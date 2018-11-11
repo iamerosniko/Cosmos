@@ -5,7 +5,9 @@
       <PropertyRef Name="WorkdayID" />
     </Key>
     <Property Name="WorkdayID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-    <Property Name="EmployeeName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="EmployeeFirstName" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="EmployeeMiddleName" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="EmployeeLastName" Type="nvarchar" MaxLength="2147483647" />
     <Property Name="EmployeeTeam" Type="nvarchar" MaxLength="2147483647" />
     <Property Name="EmployeeTeamLeader" Type="nvarchar" MaxLength="2147483647" />
   </EntityType>

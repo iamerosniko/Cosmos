@@ -31,7 +31,7 @@ namespace test.BW
                 {
                     registeredEmployees.Add(new EventRegistered
                     {
-                        EmployeeName = tempEmp.EmployeeName,
+                        EmployeeName = tempEmp.EmployeeFirstName + " " + tempEmp.EmployeeMiddleName + " " + tempEmp.EmployeeLastName,
                         EventName = tempEvnt.EventName,
                         EventRegistrationSignedDate = eRL.EventRegistrationSignedDate,
                         WorkdayID = tempEmp.WorkdayID,

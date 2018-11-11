@@ -1,19 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="testModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="testEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="IS_Employees" EntityType="testModel.IS_Employees" />
     <EntitySet Name="IS_EventRegistration" EntityType="testModel.IS_EventRegistration" />
     <EntitySet Name="IS_Events" EntityType="testModel.IS_Events" />
+    <EntitySet Name="IS_Employees" EntityType="testModel.IS_Employees" />
   </EntityContainer>
-  <EntityType Name="IS_Employees">
-    <Key>
-      <PropertyRef Name="WorkdayID" />
-    </Key>
-    <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="EmployeeName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="EmployeeTeam" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="EmployeeTeamLeader" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityType Name="IS_EventRegistration">
     <Key>
       <PropertyRef Name="EventRegistrationID" />
@@ -33,5 +24,16 @@
     <Property Name="EventLocation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
     <Property Name="EventTheme" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
     <Property Name="EventIsDark" Type="Int64" />
+  </EntityType>
+  <EntityType Name="IS_Employees">
+    <Key>
+      <PropertyRef Name="WorkdayID" />
+    </Key>
+    <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeFirstName" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeMiddleName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeLastName" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeTeam" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeTeamLeader" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

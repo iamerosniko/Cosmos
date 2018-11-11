@@ -1,5 +1,7 @@
 ﻿using MetroFramework.Forms;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using test.BW;
@@ -50,7 +52,9 @@ namespace test
         {
             IS_Employees isEmployee = new IS_Employees
             {
-                EmployeeName = txtFullName.Text,
+                EmployeeFirstName = txtFname.Text,
+                EmployeeLastName = txtLname.Text,
+                EmployeeMiddleName = txtMname.Text,
                 EmployeeTeam = txtTeam.Text,
                 EmployeeTeamLeader = txtTeamLeader.Text,
                 WorkdayID = txtWorkdayID.Text
@@ -60,9 +64,13 @@ namespace test
             {
                 MessageBox.Show("Workday ID is Required.");
             }
-            else if (isEmployee.EmployeeName.Trim().Equals(""))
+            else if (isEmployee.EmployeeFirstName.Trim().Equals(""))
             {
-                MessageBox.Show("Employee Name is Required.");
+                MessageBox.Show("First Name is Required.");
+            }
+            else if (isEmployee.EmployeeLastName.Trim().Equals(""))
+            {
+                MessageBox.Show("Last Name is Required.");
             }
             else if (isEmployee.EmployeeTeam.Trim().Equals(""))
             {
@@ -79,6 +87,40 @@ namespace test
                 btnRefresh_Click(sender, e);
             }
         }
+        private void btnBulk_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Json File(*.json)|*.json";
+            DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog.FileName;
+                using (StreamReader r = new StreamReader(file))
+                {
+                    var json = r.ReadToEnd();
+                    var items = JsonConvert.DeserializeObject<List<IS_Employees>>(json);
+                    //bulk insert
+                    txtBulkEmployees.Clear();
+                    MessageBox.Show("Total of Items : " + items.Count + "\nThis will take a few moment.");
+
+                    foreach (var item in items)
+                    {
+                        var a = myemployees.Post(item);
+                        if (!a)
+                        {
+                            txtBulkEmployees.Text += "Existing Employee Item. Will Replaced with new data : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
+                        }
+                        else
+                        {
+                            txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + Environment.NewLine;
+
+                        }
+                    }
+                }
+            }
+            MessageBox.Show("Bulk Insertion Completed");
+            btnRefresh_Click(sender, e);
+        }
 
         public void btnRefresh_Click(object sender, System.EventArgs e)
         {
@@ -90,6 +132,17 @@ namespace test
         #endregion
 
         #region EVENTS
+        private void cmbEvent_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                btnEventCheck_Click(sender, e);
+            }
+            catch
+            {
+
+            }
+        }
 
         public void GetEvents()
         {
@@ -259,11 +312,10 @@ namespace test
 
         private void Main_Load(object sender, System.EventArgs e)
         {
+            cmbEvent.Text = "";
             GetEmployees();
             GetEvents();
             GetRegisteredEmployees();
         }
-
-
     }
 }

@@ -14,7 +14,7 @@ namespace test.BW
 
         public List<IS_Employees> Get()
         {
-            return context.IS_Employees.ToList();
+            return context.IS_Employees.OrderBy(x => x.WorkdayID).ToList();
         }
 
         public bool Post(IS_Employees employees)
@@ -28,6 +28,12 @@ namespace test.BW
             }
             else
             {
+                a.EmployeeFirstName = employees.EmployeeFirstName;
+                a.EmployeeLastName = employees.EmployeeLastName;
+                a.EmployeeMiddleName = employees.EmployeeMiddleName;
+                a.EmployeeTeam = employees.EmployeeTeam;
+                a.EmployeeTeamLeader = employees.EmployeeTeamLeader;
+                context.SaveChanges();
                 return false;
             }
         }
