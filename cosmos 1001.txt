@@ -1,4 +1,5 @@
 
+*employee - bulk insertion
 Done
 *event registration - team and team leader - done
 *Event registration - event date in with hh:mm:ss - done
@@ -6,6 +7,5 @@ Done
 *Event registration - emp not  found - auto insert - done
 *Reports - Event Filtering - sort ascending of time  - done
 *Event UI dynamic pic 
-*employee - bulk insertion - done - concern - font color
 
 
