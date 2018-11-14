@@ -989,7 +989,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtEventDate.Location = new System.Drawing.Point(16, 146);
-            this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.txtEventDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(325, 29);
             this.txtEventDate.TabIndex = 18;
