@@ -66,9 +66,8 @@ namespace test
             }
             catch
             {
-                BackgroundImage = null;
             }
-
+            BackgroundImage = Image.FromFile(@".\bg.png");
         }
 
         public void ClearAll()
@@ -191,6 +190,11 @@ namespace test
             }
 
             btnRegister.Enabled = true;
+        }
+
+        private void pnlImage_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

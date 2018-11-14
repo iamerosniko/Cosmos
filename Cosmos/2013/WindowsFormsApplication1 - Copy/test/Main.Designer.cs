@@ -868,7 +868,7 @@
             // 
             this.btnWaiver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWaiver.Location = new System.Drawing.Point(309, 336);
+            this.btnWaiver.Location = new System.Drawing.Point(309, 311);
             this.btnWaiver.Name = "btnWaiver";
             this.btnWaiver.Size = new System.Drawing.Size(36, 23);
             this.btnWaiver.TabIndex = 27;
@@ -1504,16 +1504,17 @@
             this.metroLabel17.FontSize = MetroFramework.MetroLabelSize.Small;
             this.metroLabel17.Location = new System.Drawing.Point(20, 695);
             this.metroLabel17.Name = "metroLabel17";
-            this.metroLabel17.Size = new System.Drawing.Size(77, 15);
+            this.metroLabel17.Size = new System.Drawing.Size(420, 15);
             this.metroLabel17.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel17.TabIndex = 2;
-            this.metroLabel17.Text = "Version 1.0.0.2";
+            this.metroLabel17.Text = "Version 1.0.0.4 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1366, 730);
             this.Controls.Add(this.metroLabel17);
             this.Controls.Add(this.TCMain);

@@ -30,6 +30,7 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.metroPanel1 = new System.Windows.Forms.Panel();
+            this.chbWaive = new System.Windows.Forms.CheckBox();
             this.txtLastName = new MetroFramework.Controls.MetroTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtMiddleName = new MetroFramework.Controls.MetroTextBox();
@@ -44,7 +45,6 @@
             this.lblEmp = new System.Windows.Forms.Label();
             this.lblWDID = new System.Windows.Forms.Label();
             this.pnlImage = new System.Windows.Forms.Panel();
-            this.chbWaive = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -90,6 +90,17 @@
             this.metroPanel1.Name = "metroPanel1";
             this.metroPanel1.Size = new System.Drawing.Size(350, 690);
             this.metroPanel1.TabIndex = 4;
+            // 
+            // chbWaive
+            // 
+            this.chbWaive.AutoSize = true;
+            this.chbWaive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.chbWaive.Location = new System.Drawing.Point(135, 448);
+            this.chbWaive.Name = "chbWaive";
+            this.chbWaive.Size = new System.Drawing.Size(76, 24);
+            this.chbWaive.TabIndex = 7;
+            this.chbWaive.Text = "Waive";
+            this.chbWaive.UseVisualStyleBackColor = true;
             // 
             // txtLastName
             // 
@@ -357,17 +368,7 @@
             this.pnlImage.Name = "pnlImage";
             this.pnlImage.Size = new System.Drawing.Size(757, 690);
             this.pnlImage.TabIndex = 5;
-            // 
-            // chbWaive
-            // 
-            this.chbWaive.AutoSize = true;
-            this.chbWaive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chbWaive.Location = new System.Drawing.Point(135, 448);
-            this.chbWaive.Name = "chbWaive";
-            this.chbWaive.Size = new System.Drawing.Size(76, 24);
-            this.chbWaive.TabIndex = 7;
-            this.chbWaive.Text = "Waive";
-            this.chbWaive.UseVisualStyleBackColor = true;
+            this.pnlImage.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlImage_Paint);
             // 
             // Registration
             // 

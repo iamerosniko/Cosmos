@@ -81,3 +81,5 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.csproj.CopyComplete
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.exe
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.pdb
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\test.csprojAssemblyReference.cache
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\bg.png
