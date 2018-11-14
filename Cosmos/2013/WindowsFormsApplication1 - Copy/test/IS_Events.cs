@@ -20,5 +20,6 @@ namespace test
         public string EventLocation { get; set; }
         public string EventTheme { get; set; }
         public Nullable<long> EventIsDark { get; set; }
+        public string EventEULA { get; set; }
     }
 }

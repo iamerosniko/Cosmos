@@ -35,6 +35,7 @@
           <Property Name="EventLocation" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="EventTheme" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="EventIsDark" Type="integer" />
+          <Property Name="EventEULA" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
         <EntityContainer Name="testModelStoreContainer">
           <EntitySet Name="IS_Employees" EntityType="Self.IS_Employees" store:Type="Tables" />
@@ -69,6 +70,7 @@
           <Property Name="EventLocation" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="EventTheme" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="EventIsDark" Type="Int64" />
+          <Property Name="EventEULA" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="IS_Employees">
           <Key>
@@ -100,6 +102,7 @@
           <EntitySetMapping Name="IS_Events">
             <EntityTypeMapping TypeName="testModel.IS_Events">
               <MappingFragment StoreEntitySet="IS_Events">
+                <ScalarProperty Name="EventEULA" ColumnName="EventEULA" />
                 <ScalarProperty Name="EventIsDark" ColumnName="EventIsDark" />
                 <ScalarProperty Name="EventTheme" ColumnName="EventTheme" />
                 <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />

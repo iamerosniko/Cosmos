@@ -30,6 +30,7 @@
     <Property Name="EventLocation" Type="nvarchar" MaxLength="2147483647" />
     <Property Name="EventTheme" Type="nvarchar" MaxLength="2147483647" />
     <Property Name="EventIsDark" Type="integer" />
+    <Property Name="EventEULA" Type="nvarchar" MaxLength="2147483647" />
   </EntityType>
   <EntityContainer Name="testModelStoreContainer">
     <EntitySet Name="IS_Employees" EntityType="Self.IS_Employees" store:Type="Tables" />

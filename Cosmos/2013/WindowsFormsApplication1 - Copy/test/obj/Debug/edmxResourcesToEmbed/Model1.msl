@@ -14,6 +14,7 @@
     <EntitySetMapping Name="IS_Events">
       <EntityTypeMapping TypeName="testModel.IS_Events">
         <MappingFragment StoreEntitySet="IS_Events">
+          <ScalarProperty Name="EventEULA" ColumnName="EventEULA" />
           <ScalarProperty Name="EventIsDark" ColumnName="EventIsDark" />
           <ScalarProperty Name="EventTheme" ColumnName="EventTheme" />
           <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />

@@ -52,31 +52,31 @@ namespace test
         {
             IS_Employees isEmployee = new IS_Employees
             {
-                EmployeeFirstName = txtFname.Text,
-                EmployeeLastName = txtLname.Text,
-                EmployeeMiddleName = txtMname.Text,
-                EmployeeTeam = txtTeam.Text,
-                EmployeeTeamLeader = txtTeamLeader.Text,
-                WorkdayID = txtWorkdayID.Text
+                EmployeeFirstName = txtFname.Text.Trim(),
+                EmployeeLastName = txtLname.Text.Trim(),
+                EmployeeMiddleName = txtMname.Text.Trim(),
+                EmployeeTeam = txtTeam.Text.Trim(),
+                EmployeeTeamLeader = txtTeamLeader.Text.Trim(),
+                WorkdayID = txtWorkdayID.Text.Trim()
             };
 
-            if (isEmployee.WorkdayID.Trim().Equals(""))
+            if (isEmployee.WorkdayID.Equals(""))
             {
                 MessageBox.Show("Workday ID is Required.");
             }
-            else if (isEmployee.EmployeeFirstName.Trim().Equals(""))
+            else if (isEmployee.EmployeeFirstName.Equals(""))
             {
                 MessageBox.Show("First Name is Required.");
             }
-            else if (isEmployee.EmployeeLastName.Trim().Equals(""))
+            else if (isEmployee.EmployeeLastName.Equals(""))
             {
                 MessageBox.Show("Last Name is Required.");
             }
-            else if (isEmployee.EmployeeTeam.Trim().Equals(""))
+            else if (isEmployee.EmployeeTeam.Equals(""))
             {
                 MessageBox.Show("Team is Required.");
             }
-            else if (isEmployee.EmployeeTeamLeader.Trim().Equals(""))
+            else if (isEmployee.EmployeeTeamLeader.Equals(""))
             {
                 MessageBox.Show("Team Leader is Required.");
             }
@@ -154,6 +154,7 @@ namespace test
             GridEvents.Columns[3].HeaderText = "Venue";
             GridEvents.Columns[4].HeaderText = "Image Theme";
             GridEvents.Columns[5].Visible = false;
+            GridEvents.Columns[6].HeaderText = "Waiver";
 
             cmbEvent.DataSource = listEvents;
             cmbEvent.DisplayMember = "EventName";
@@ -171,6 +172,33 @@ namespace test
                 try
                 {
                     txtEventThemePath.Text = openFileDialog.SafeFileName;
+                    string text = File.ReadAllText(file);
+                    size = text.Length;
+
+                    string targetPath = @".\Event Theme";
+                    File.Copy(openFileDialog.FileName, targetPath + @"\" + openFileDialog.SafeFileName, true);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+
+        private void btnWaiver_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Document Files (*.docx)|*.docx";
+            int size = -1;
+            DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                string file = openFileDialog.FileName;
+                try
+                {
+                    txtWaiver.Text = openFileDialog.SafeFileName;
                     string text = File.ReadAllText(file);
                     size = text.Length;
 
@@ -204,10 +232,11 @@ namespace test
             IS_Events isEvent = new IS_Events
             {
                 EventDate = txtEventDate.Value.ToShortDateString(),
-                EventLocation = txtVenue.Text,
-                EventName = txtEventName.Text,
-                EventTheme = txtEventThemePath.Text,
-                EventIsDark = chkbIsWhiteFont.Checked ? long.Parse("1") : long.Parse("0")
+                EventLocation = txtVenue.Text.Trim(),
+                EventName = txtEventName.Text.Trim(),
+                EventTheme = txtEventThemePath.Text.Trim(),
+                EventIsDark = chkbIsWhiteFont.Checked ? long.Parse("1") : long.Parse("0"),
+                EventEULA = txtWaiver.Text.Trim()
             };
 
             if (isEvent.EventName.Trim().Equals(""))
@@ -317,5 +346,6 @@ namespace test
             GetEvents();
             GetRegisteredEmployees();
         }
+
     }
 }
