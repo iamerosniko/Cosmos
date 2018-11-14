@@ -25,8 +25,8 @@ namespace test
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<IS_EventRegistration> IS_EventRegistration { get; set; }
         public virtual DbSet<IS_Events> IS_Events { get; set; }
         public virtual DbSet<IS_Employees> IS_Employees { get; set; }
+        public virtual DbSet<IS_EventRegistration> IS_EventRegistration { get; set; }
     }
 }

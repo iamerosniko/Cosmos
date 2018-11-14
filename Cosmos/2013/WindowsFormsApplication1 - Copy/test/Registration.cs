@@ -25,41 +25,44 @@ namespace test
         private void Registration_Load(object sender, System.EventArgs e)
         {
             var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
-
-            this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation + "                  RESOLUTION : " + this.ClientSize.Width + "x" + this.ClientSize.Height;
+            if (myEvent.EventEULA.Equals("") || myEvent.EventEULA == null)
+            {
+                chbWaive.Visible = false;
+            }
+            else
+            {
+                chbWaive.Visible = true;
+            }
+            //this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation + "                  RESOLUTION : " + this.ClientSize.Width + "x" + this.ClientSize.Height;
             //this.lblRegistrationName.Text = Text;
-            this.lblRegistrationName.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation;
+            //this.lblRegistrationName.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation;
             //this.label1.Text = this.Text;
-            PnlMain.Location = new Point(
-                this.ClientSize.Width / 2 - PnlMain.Size.Width / 2,
-                this.ClientSize.Height / 2 - PnlMain.Size.Height / 2);
-            PnlMain.Anchor = AnchorStyles.None;
+
 
             try
             {
 
-                if (myEvent.EventIsDark.Value == 1)
-                {
-                    lblEmp.ForeColor = Color.White;
-                    lblRegistrationName.ForeColor = Color.White;
-                    lblTeam.ForeColor = Color.White;
-                    lblTL.ForeColor = Color.White;
-                    lblWDID.ForeColor = Color.White;
-                }
-                else
-                {
-                    lblEmp.ForeColor = Color.Black;
-                    lblRegistrationName.ForeColor = Color.Black;
-                    lblTeam.ForeColor = Color.Black;
-                    lblTL.ForeColor = Color.Black;
-                    lblWDID.ForeColor = Color.Black;
+                //if (myEvent.EventIsDark.Value == 1)
+                //{
+                //    lblEmp.ForeColor = Color.White;
+                //    lblTeam.ForeColor = Color.White;
+                //    lblTL.ForeColor = Color.White;
+                //    lblWDID.ForeColor = Color.White;
+                //}
+                //else
+                //{
+                //    lblEmp.ForeColor = Color.Black;
+                //    lblTeam.ForeColor = Color.Black;
+                //    lblTL.ForeColor = Color.Black;
+                //    lblWDID.ForeColor = Color.Black;
 
-                }
+                //}
                 Image myimage = Image.FromFile(@".\Event Theme\" + myEvent.EventTheme);
                 //Image myimage = new Bitmap(@".\Event Theme\" + myEvent.EventTheme);
-                BackgroundImage = myimage;
-                BackgroundImageLayout = ImageLayout.Stretch;
-
+                //BackgroundImage = myimage;
+                //BackgroundImageLayout = ImageLayout.Stretch;
+                pnlImage.BackgroundImageLayout = ImageLayout.Stretch;
+                pnlImage.BackgroundImage = myimage;
             }
             catch
             {
@@ -73,12 +76,16 @@ namespace test
             txtFirstName.Clear();
             txtLeader.Clear();
             txtTeam.Clear();
+            txtLastName.Clear();
+            txtMiddleName.Clear();
             txtWorkdayID.Clear();
         }
 
 
         private void btnRegister_Click(object sender, System.EventArgs e)
         {
+            var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
+
             if (txtWorkdayID.Text.Trim().Equals(""))
             {
                 MessageBox.Show("Please provide Workday ID first");
@@ -106,7 +113,8 @@ namespace test
                         IS_EventRegistration registration = new IS_EventRegistration
                         {
                             EventID = long.Parse(_eventID),
-                            WorkdayID = txtWorkdayID.Text.Trim()
+                            WorkdayID = txtWorkdayID.Text.Trim(),
+                            EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
                         };
 
                         var result = _bwEventRegistration.Post(registration);
@@ -129,7 +137,8 @@ namespace test
                     IS_EventRegistration registration = new IS_EventRegistration
                     {
                         EventID = long.Parse(_eventID),
-                        WorkdayID = employee.WorkdayID
+                        WorkdayID = employee.WorkdayID,
+                        EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
                     };
 
                     var result = _bwEventRegistration.Post(registration);

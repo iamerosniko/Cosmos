@@ -8,6 +8,7 @@
         public string TeamName { get; set; }
         public string TeamLeader { get; set; }
         public string EventRegistrationSignedDate { get; set; }
+        public string Waived { get; set; }
 
     }
 }

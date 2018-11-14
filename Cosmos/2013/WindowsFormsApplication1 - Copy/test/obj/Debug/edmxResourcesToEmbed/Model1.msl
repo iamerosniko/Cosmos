@@ -1,16 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="testModelStoreContainer" CdmEntityContainer="testEntities">
-    <EntitySetMapping Name="IS_EventRegistration">
-      <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
-        <MappingFragment StoreEntitySet="IS_EventRegistration">
-          <ScalarProperty Name="EventRegistrationSignedDate" ColumnName="EventRegistrationSignedDate" />
-          <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
-          <ScalarProperty Name="EventID" ColumnName="EventID" />
-          <ScalarProperty Name="EventRegistrationID" ColumnName="EventRegistrationID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="IS_Events">
       <EntityTypeMapping TypeName="testModel.IS_Events">
         <MappingFragment StoreEntitySet="IS_Events">
@@ -33,6 +23,17 @@
           <ScalarProperty Name="EmployeeMiddleName" ColumnName="EmployeeMiddleName" />
           <ScalarProperty Name="EmployeeFirstName" ColumnName="EmployeeFirstName" />
           <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IS_EventRegistration">
+      <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
+        <MappingFragment StoreEntitySet="IS_EventRegistration">
+          <ScalarProperty Name="EventWaived" ColumnName="EventWaived" />
+          <ScalarProperty Name="EventRegistrationSignedDate" ColumnName="EventRegistrationSignedDate" />
+          <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventRegistrationID" ColumnName="EventRegistrationID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

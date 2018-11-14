@@ -75,6 +75,9 @@
             this.PgEventMaintenance = new MetroFramework.Controls.MetroTabPage();
             this.tplEvents = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new MetroFramework.Controls.MetroPanel();
+            this.btnWaiver = new MetroFramework.Controls.MetroButton();
+            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
+            this.txtWaiver = new MetroFramework.Controls.MetroTextBox();
             this.chkbIsWhiteFont = new MetroFramework.Controls.MetroCheckBox();
             this.btnEventThemeFIleSearcher = new MetroFramework.Controls.MetroButton();
             this.metroLabel18 = new MetroFramework.Controls.MetroLabel();
@@ -108,9 +111,6 @@
             this.TileRptEvent = new MetroFramework.Controls.MetroTile();
             this.TileRptEmp = new MetroFramework.Controls.MetroTile();
             this.metroLabel17 = new MetroFramework.Controls.MetroLabel();
-            this.btnWaiver = new MetroFramework.Controls.MetroButton();
-            this.metroLabel21 = new MetroFramework.Controls.MetroLabel();
-            this.txtWaiver = new MetroFramework.Controls.MetroTextBox();
             this.TCMain.SuspendLayout();
             this.PGEmployee.SuspendLayout();
             this.TCEmp.SuspendLayout();
@@ -148,7 +148,7 @@
             this.TCMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCMain.Location = new System.Drawing.Point(20, 60);
             this.TCMain.Name = "TCMain";
-            this.TCMain.SelectedIndex = 1;
+            this.TCMain.SelectedIndex = 0;
             this.TCMain.Size = new System.Drawing.Size(1326, 650);
             this.TCMain.TabIndex = 1;
             this.TCMain.UseSelectable = true;
@@ -864,15 +864,70 @@
             this.panel1.VerticalScrollbarHighlightOnWheel = false;
             this.panel1.VerticalScrollbarSize = 10;
             // 
+            // btnWaiver
+            // 
+            this.btnWaiver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnWaiver.Location = new System.Drawing.Point(309, 336);
+            this.btnWaiver.Name = "btnWaiver";
+            this.btnWaiver.Size = new System.Drawing.Size(36, 23);
+            this.btnWaiver.TabIndex = 27;
+            this.btnWaiver.Text = "...";
+            this.btnWaiver.UseSelectable = true;
+            this.btnWaiver.Click += new System.EventHandler(this.btnWaiver_Click);
+            // 
+            // metroLabel21
+            // 
+            this.metroLabel21.AutoSize = true;
+            this.metroLabel21.Location = new System.Drawing.Point(16, 289);
+            this.metroLabel21.Name = "metroLabel21";
+            this.metroLabel21.Size = new System.Drawing.Size(73, 19);
+            this.metroLabel21.TabIndex = 28;
+            this.metroLabel21.Text = "Waiver File";
+            // 
+            // txtWaiver
+            // 
+            this.txtWaiver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtWaiver.CustomButton.Image = null;
+            this.txtWaiver.CustomButton.Location = new System.Drawing.Point(274, 1);
+            this.txtWaiver.CustomButton.Name = "";
+            this.txtWaiver.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtWaiver.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtWaiver.CustomButton.TabIndex = 1;
+            this.txtWaiver.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtWaiver.CustomButton.UseSelectable = true;
+            this.txtWaiver.CustomButton.Visible = false;
+            this.txtWaiver.Lines = new string[0];
+            this.txtWaiver.Location = new System.Drawing.Point(16, 311);
+            this.txtWaiver.MaxLength = 32767;
+            this.txtWaiver.Name = "txtWaiver";
+            this.txtWaiver.PasswordChar = '\0';
+            this.txtWaiver.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtWaiver.SelectedText = "";
+            this.txtWaiver.SelectionLength = 0;
+            this.txtWaiver.SelectionStart = 0;
+            this.txtWaiver.ShortcutsEnabled = true;
+            this.txtWaiver.Size = new System.Drawing.Size(296, 23);
+            this.txtWaiver.TabIndex = 26;
+            this.txtWaiver.TabStop = false;
+            this.txtWaiver.UseSelectable = true;
+            this.txtWaiver.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtWaiver.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // chkbIsWhiteFont
             // 
             this.chkbIsWhiteFont.AutoSize = true;
-            this.chkbIsWhiteFont.Location = new System.Drawing.Point(20, 292);
+            this.chkbIsWhiteFont.Location = new System.Drawing.Point(16, 344);
             this.chkbIsWhiteFont.Name = "chkbIsWhiteFont";
             this.chkbIsWhiteFont.Size = new System.Drawing.Size(208, 15);
             this.chkbIsWhiteFont.TabIndex = 22;
             this.chkbIsWhiteFont.Text = "Use White Text to this Background?";
             this.chkbIsWhiteFont.UseSelectable = true;
+            this.chkbIsWhiteFont.Visible = false;
             // 
             // btnEventThemeFIleSearcher
             // 
@@ -912,7 +967,7 @@
             this.txtEventThemePath.CustomButton.UseSelectable = true;
             this.txtEventThemePath.CustomButton.Visible = false;
             this.txtEventThemePath.Lines = new string[0];
-            this.txtEventThemePath.Location = new System.Drawing.Point(20, 254);
+            this.txtEventThemePath.Location = new System.Drawing.Point(16, 254);
             this.txtEventThemePath.MaxLength = 32767;
             this.txtEventThemePath.Name = "txtEventThemePath";
             this.txtEventThemePath.PasswordChar = '\0';
@@ -933,7 +988,7 @@
             this.txtEventDate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtEventDate.Location = new System.Drawing.Point(20, 146);
+            this.txtEventDate.Location = new System.Drawing.Point(16, 146);
             this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(325, 29);
@@ -995,7 +1050,7 @@
             this.txtVenue.CustomButton.UseSelectable = true;
             this.txtVenue.CustomButton.Visible = false;
             this.txtVenue.Lines = new string[0];
-            this.txtVenue.Location = new System.Drawing.Point(20, 202);
+            this.txtVenue.Location = new System.Drawing.Point(16, 202);
             this.txtVenue.MaxLength = 32767;
             this.txtVenue.Name = "txtVenue";
             this.txtVenue.PasswordChar = '\0';
@@ -1027,7 +1082,7 @@
             this.txtEventName.CustomButton.UseSelectable = true;
             this.txtEventName.CustomButton.Visible = false;
             this.txtEventName.Lines = new string[0];
-            this.txtEventName.Location = new System.Drawing.Point(20, 98);
+            this.txtEventName.Location = new System.Drawing.Point(16, 98);
             this.txtEventName.MaxLength = 32767;
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.PasswordChar = '\0';
@@ -1453,60 +1508,6 @@
             this.metroLabel17.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel17.TabIndex = 2;
             this.metroLabel17.Text = "Version 1.0.0.2";
-            // 
-            // btnWaiver
-            // 
-            this.btnWaiver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnWaiver.Location = new System.Drawing.Point(309, 336);
-            this.btnWaiver.Name = "btnWaiver";
-            this.btnWaiver.Size = new System.Drawing.Size(36, 23);
-            this.btnWaiver.TabIndex = 27;
-            this.btnWaiver.Text = "...";
-            this.btnWaiver.UseSelectable = true;
-            this.btnWaiver.Click += new System.EventHandler(this.btnWaiver_Click);
-            // 
-            // metroLabel21
-            // 
-            this.metroLabel21.AutoSize = true;
-            this.metroLabel21.Location = new System.Drawing.Point(16, 314);
-            this.metroLabel21.Name = "metroLabel21";
-            this.metroLabel21.Size = new System.Drawing.Size(73, 19);
-            this.metroLabel21.TabIndex = 28;
-            this.metroLabel21.Text = "Waiver File";
-            // 
-            // txtWaiver
-            // 
-            this.txtWaiver.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtWaiver.CustomButton.Image = null;
-            this.txtWaiver.CustomButton.Location = new System.Drawing.Point(274, 1);
-            this.txtWaiver.CustomButton.Name = "";
-            this.txtWaiver.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtWaiver.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtWaiver.CustomButton.TabIndex = 1;
-            this.txtWaiver.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtWaiver.CustomButton.UseSelectable = true;
-            this.txtWaiver.CustomButton.Visible = false;
-            this.txtWaiver.Lines = new string[0];
-            this.txtWaiver.Location = new System.Drawing.Point(20, 336);
-            this.txtWaiver.MaxLength = 32767;
-            this.txtWaiver.Name = "txtWaiver";
-            this.txtWaiver.PasswordChar = '\0';
-            this.txtWaiver.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtWaiver.SelectedText = "";
-            this.txtWaiver.SelectionLength = 0;
-            this.txtWaiver.SelectionStart = 0;
-            this.txtWaiver.ShortcutsEnabled = true;
-            this.txtWaiver.Size = new System.Drawing.Size(296, 23);
-            this.txtWaiver.TabIndex = 26;
-            this.txtWaiver.TabStop = false;
-            this.txtWaiver.UseSelectable = true;
-            this.txtWaiver.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtWaiver.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // Main
             // 

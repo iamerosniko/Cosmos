@@ -18,5 +18,6 @@ namespace test
         public long EventID { get; set; }
         public string WorkdayID { get; set; }
         public string EventRegistrationSignedDate { get; set; }
+        public string EventWaived { get; set; }
     }
 }
