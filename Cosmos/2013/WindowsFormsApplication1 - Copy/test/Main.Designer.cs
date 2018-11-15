@@ -150,7 +150,7 @@
             this.TCMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCMain.Location = new System.Drawing.Point(20, 60);
             this.TCMain.Name = "TCMain";
-            this.TCMain.SelectedIndex = 2;
+            this.TCMain.SelectedIndex = 0;
             this.TCMain.Size = new System.Drawing.Size(1326, 650);
             this.TCMain.TabIndex = 1;
             this.TCMain.UseSelectable = true;
@@ -991,7 +991,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtEventDate.Location = new System.Drawing.Point(16, 146);
-            this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
+            this.txtEventDate.MinimumSize = new System.Drawing.Size(4, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(325, 29);
             this.txtEventDate.TabIndex = 18;
@@ -1533,7 +1533,7 @@
             this.metroLabel17.Size = new System.Drawing.Size(420, 15);
             this.metroLabel17.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel17.TabIndex = 2;
-            this.metroLabel17.Text = "Version 1.0.0.5 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
+            this.metroLabel17.Text = "Version 1.0.0.6 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
             // 
             // Main
             // 
