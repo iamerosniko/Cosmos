@@ -131,6 +131,7 @@
             this.txtTeam.MaxLength = 32767;
             this.txtTeam.Name = "txtTeam";
             this.txtTeam.PasswordChar = '\0';
+            this.txtTeam.ReadOnly = true;
             this.txtTeam.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTeam.SelectedText = "";
             this.txtTeam.SelectionLength = 0;
@@ -164,6 +165,7 @@
             // 
             // cmbTeam
             // 
+            this.cmbTeam.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTeam.FormattingEnabled = true;
             this.cmbTeam.ItemHeight = 13;
             this.cmbTeam.Location = new System.Drawing.Point(5, 25);
@@ -207,6 +209,7 @@
             // chbWaive
             // 
             this.chbWaive.AutoSize = true;
+            this.chbWaive.Enabled = false;
             this.chbWaive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.chbWaive.Location = new System.Drawing.Point(76, 461);
             this.chbWaive.Name = "chbWaive";
@@ -317,6 +320,7 @@
             this.txtLeader.MaxLength = 32767;
             this.txtLeader.Name = "txtLeader";
             this.txtLeader.PasswordChar = '\0';
+            this.txtLeader.ReadOnly = true;
             this.txtLeader.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtLeader.SelectedText = "";
             this.txtLeader.SelectionLength = 0;
@@ -324,6 +328,7 @@
             this.txtLeader.ShortcutsEnabled = true;
             this.txtLeader.Size = new System.Drawing.Size(328, 23);
             this.txtLeader.TabIndex = 6;
+            this.txtLeader.TabStop = false;
             this.txtLeader.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLeader.UseSelectable = true;
             this.txtLeader.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));

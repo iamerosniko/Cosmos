@@ -74,6 +74,16 @@ namespace test
             BackgroundImage = Image.FromFile(@".\bg.png");
             chbWaive_CheckStateChanged(sender, e);
             //txtTeam.AutoCompleteSource = _bwEmployees.GetTeams();
+            var a = _bwEmployees.GetTeams();
+            List<TeamsDTO> teams = new List<TeamsDTO>();
+            teams.Add(new TeamsDTO { Leader = "", TeamName = "" });
+            foreach (var b in a)
+            {
+                teams.Add(b);
+            }
+            cmbTeam.DataSource = teams;
+            cmbTeam.DisplayMember = "TeamName";
+            cmbTeam.ValueMember = "Leader";
 
         }
 
@@ -85,6 +95,9 @@ namespace test
             txtLastName.Clear();
             txtMiddleName.Clear();
             txtWorkdayID.Clear();
+            txtWorkdayID.Focus();
+            pnlReadOnlyTeam.Visible = true;
+            pnlTeamWithCombo.Visible = false;
         }
 
 
@@ -106,35 +119,55 @@ namespace test
 
                         IS_Employees emp = new IS_Employees
                         {
-                            EmployeeFirstName = txtFirstName.Text,
-                            EmployeeMiddleName = txtMiddleName.Text,
-                            EmployeeLastName = txtLastName.Text,
-                            WorkdayID = txtWorkdayID.Text,
-                            EmployeeTeam = txtTeam.Text,
-                            EmployeeTeamLeader = txtLeader.Text
-                        };
-
-                        _bwEmployees.Post(emp);
-
-                        IS_EventRegistration registration = new IS_EventRegistration
-                        {
-                            EventID = long.Parse(_eventID),
+                            EmployeeFirstName = txtFirstName.Text.Trim(),
+                            EmployeeMiddleName = txtMiddleName.Text.Trim(),
+                            EmployeeLastName = txtLastName.Text.Trim(),
                             WorkdayID = txtWorkdayID.Text.Trim(),
-                            EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
+                            EmployeeTeam = txtTeam.Text.Trim(),
+                            EmployeeTeamLeader = txtLeader.Text.Trim()
                         };
 
-                        var result = _bwEventRegistration.Post(registration);
 
-                        if (result)
+                        if (emp.EmployeeFirstName.Equals(""))
                         {
-                            MessageBox.Show("Successfully Registered.");
+                            MessageBox.Show("First Name is required");
+                            txtFirstName.Focus();
+                        }
+                        else if (emp.EmployeeLastName.Equals(""))
+                        {
+                            MessageBox.Show("Last Name is required");
+                            txtLastName.Focus();
+                        }
+                        else if (emp.EmployeeTeam.Equals(""))
+                        {
+                            MessageBox.Show("Team is required");
+                            cmbTeam.Focus();
                         }
                         else
                         {
-                            MessageBox.Show("Already Registered");
+                            _bwEmployees.Post(emp);
+
+                            IS_EventRegistration registration = new IS_EventRegistration
+                            {
+                                EventID = long.Parse(_eventID),
+                                WorkdayID = txtWorkdayID.Text.Trim(),
+                                EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
+                            };
+
+                            var result = _bwEventRegistration.Post(registration);
+
+                            if (result)
+                            {
+                                MessageBox.Show("Successfully Registered.");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Already Registered");
+                            }
+                            ClearAll();
+                            _main.btnRefresh_Click(sender, e);
+
                         }
-                        ClearAll();
-                        _main.btnRefresh_Click(sender, e);
 
                     }
                 }
@@ -167,7 +200,7 @@ namespace test
 
         private void txtWorkdayID_KeyUp(object sender, KeyEventArgs e)
         {
-            employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text);
+            employee = _bwEmployees.Get().Find(x => x.WorkdayID == txtWorkdayID.Text.Trim());
 
             if (employee == null)
             {
@@ -183,6 +216,8 @@ namespace test
                     txtLastName.Enabled = true;
                     txtLeader.Enabled = true;
                     txtTeam.Enabled = true;
+                    cmbTeam.Enabled = true;
+                    chbWaive.Enabled = true;
                     pnlReadOnlyTeam.Visible = false;
                     pnlTeamWithCombo.Visible = true;
                 }
@@ -200,18 +235,9 @@ namespace test
                     txtTeam.Enabled = false;
                     pnlReadOnlyTeam.Visible = false;
                     pnlTeamWithCombo.Visible = true;
-
+                    cmbTeam.Enabled = false;
+                    chbWaive.Enabled = false;
                 }
-                var a = _bwEmployees.GetTeams();
-                List<TeamsDTO> teams = new List<TeamsDTO>();
-                teams.Add(new TeamsDTO { Leader = "", TeamName = "" });
-                foreach (var b in a)
-                {
-                    teams.Add(b);
-                }
-                cmbTeam.DataSource = teams;
-                cmbTeam.DisplayMember = "TeamName";
-                cmbTeam.ValueMember = "Leader";
             }
             else
             {
@@ -225,10 +251,10 @@ namespace test
                 txtLastName.Enabled = false;
                 txtLeader.Enabled = false;
                 txtTeam.Enabled = false;
+                cmbTeam.Enabled = true;
+                chbWaive.Enabled = true;
                 pnlReadOnlyTeam.Visible = true;
                 pnlTeamWithCombo.Visible = false;
-                cmbTeam.DataSource = null;
-
             }
         }
 
@@ -273,8 +299,7 @@ namespace test
             catch
             {
                 txtLeader.Text = cmbTeam.SelectedValue.ToString();
-                txtTeam.Text = cmbTeam.Text;
-
+                txtTeam.Text = cmbTeam.Text.Trim();
             }
         }
     }
