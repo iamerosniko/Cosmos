@@ -198,11 +198,11 @@
             // 
             // btnOpenWaiver
             // 
-            this.btnOpenWaiver.Location = new System.Drawing.Point(176, 462);
+            this.btnOpenWaiver.Location = new System.Drawing.Point(9, 460);
             this.btnOpenWaiver.Name = "btnOpenWaiver";
-            this.btnOpenWaiver.Size = new System.Drawing.Size(108, 23);
+            this.btnOpenWaiver.Size = new System.Drawing.Size(328, 23);
             this.btnOpenWaiver.TabIndex = 14;
-            this.btnOpenWaiver.Text = "Open Waiver File";
+            this.btnOpenWaiver.Text = "Read Waiver File";
             this.btnOpenWaiver.UseSelectable = true;
             this.btnOpenWaiver.Click += new System.EventHandler(this.btnOpenWaiver_Click);
             // 
@@ -210,12 +210,12 @@
             // 
             this.chbWaive.AutoSize = true;
             this.chbWaive.Enabled = false;
-            this.chbWaive.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.chbWaive.Location = new System.Drawing.Point(76, 461);
+            this.chbWaive.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold);
+            this.chbWaive.Location = new System.Drawing.Point(24, 491);
             this.chbWaive.Name = "chbWaive";
-            this.chbWaive.Size = new System.Drawing.Size(76, 24);
+            this.chbWaive.Size = new System.Drawing.Size(296, 17);
             this.chbWaive.TabIndex = 7;
-            this.chbWaive.Text = "Waive";
+            this.chbWaive.Text = "I have read and accept the terms and condition";
             this.chbWaive.UseVisualStyleBackColor = true;
             this.chbWaive.CheckStateChanged += new System.EventHandler(this.chbWaive_CheckStateChanged);
             // 

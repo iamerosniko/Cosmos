@@ -25,6 +25,8 @@
           <Property Name="WorkdayID" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="EventRegistrationSignedDate" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="EventWaived" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EmployeeTeam" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="EmployeeTeamLeader" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
         <EntityType Name="IS_Events">
           <Key>
@@ -84,6 +86,8 @@
           <Property Name="WorkdayID" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="EventRegistrationSignedDate" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="EventWaived" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTeam" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeTeamLeader" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -119,6 +123,8 @@
           <EntitySetMapping Name="IS_EventRegistration">
             <EntityTypeMapping TypeName="testModel.IS_EventRegistration">
               <MappingFragment StoreEntitySet="IS_EventRegistration">
+                <ScalarProperty Name="EmployeeTeamLeader" ColumnName="EmployeeTeamLeader" />
+                <ScalarProperty Name="EmployeeTeam" ColumnName="EmployeeTeam" />
                 <ScalarProperty Name="EventWaived" ColumnName="EventWaived" />
                 <ScalarProperty Name="EventRegistrationSignedDate" ColumnName="EventRegistrationSignedDate" />
                 <ScalarProperty Name="WorkdayID" ColumnName="WorkdayID" />

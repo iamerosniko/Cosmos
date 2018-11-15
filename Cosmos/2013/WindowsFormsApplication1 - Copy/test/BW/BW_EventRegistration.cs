@@ -35,10 +35,10 @@ namespace test.BW
                         EventName = tempEvnt.EventName,
                         EventRegistrationSignedDate = eRL.EventRegistrationSignedDate,
                         WorkdayID = tempEmp.WorkdayID,
-                        TeamName = tempEmp.EmployeeTeam,
-                        TeamLeader = tempEmp.EmployeeTeamLeader,
+                        TeamName = eRL.EmployeeTeam,
+                        TeamLeader = eRL.EmployeeTeamLeader,
                         Waived = eRL.EventWaived,
-                        EventID = tempEvnt.EventID.ToString()
+                        EventID = tempEvnt.EventID.ToString(),
                     });
                 }
             }

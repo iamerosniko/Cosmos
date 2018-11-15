@@ -151,7 +151,9 @@ namespace test
                             {
                                 EventID = long.Parse(_eventID),
                                 WorkdayID = txtWorkdayID.Text.Trim(),
-                                EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
+                                EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A",
+                                EmployeeTeamLeader = emp.EmployeeTeamLeader,
+                                EmployeeTeam = emp.EmployeeTeam
                             };
 
                             var result = _bwEventRegistration.Post(registration);
@@ -178,6 +180,8 @@ namespace test
                         EventID = long.Parse(_eventID),
                         WorkdayID = employee.WorkdayID,
                         EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A",
+                        EmployeeTeamLeader = txtLeader.Text.Trim(),
+                        EmployeeTeam = txtTeam.Text.Trim()
                     };
 
                     var result = _bwEventRegistration.Post(registration);

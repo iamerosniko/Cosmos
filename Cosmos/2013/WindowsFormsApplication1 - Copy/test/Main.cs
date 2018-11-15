@@ -45,9 +45,11 @@ namespace test
         {
             GridEmployees.DataSource = myemployees.Get();
             GridEmployees.Columns[0].HeaderText = "Workday ID";
-            GridEmployees.Columns[1].HeaderText = "Employee Name";
-            GridEmployees.Columns[2].HeaderText = "Team";
-            GridEmployees.Columns[3].HeaderText = "Team Leader";
+            GridEmployees.Columns[1].HeaderText = "First Name";
+            GridEmployees.Columns[2].HeaderText = "Middle Name";
+            GridEmployees.Columns[3].HeaderText = "Last Name";
+            GridEmployees.Columns[4].HeaderText = "Team";
+            GridEmployees.Columns[5].HeaderText = "Team Leader";
         }
         private void btnEmployeeSave_Click(object sender, System.EventArgs e)
         {
@@ -113,7 +115,7 @@ namespace test
                         }
                         else
                         {
-                            txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + Environment.NewLine;
+                            txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
 
                         }
                     }
