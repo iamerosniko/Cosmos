@@ -37,7 +37,8 @@ namespace test.BW
                         WorkdayID = tempEmp.WorkdayID,
                         TeamName = tempEmp.EmployeeTeam,
                         TeamLeader = tempEmp.EmployeeTeamLeader,
-                        Waived = eRL.EventWaived
+                        Waived = eRL.EventWaived,
+                        EventID = tempEvnt.EventID.ToString()
                     });
                 }
             }

@@ -2,8 +2,8 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using test.BW;
 
@@ -127,6 +127,7 @@ namespace test
         {
             GetEmployees();
             GetEvents();
+            GetRegisteredEvents();
             GetRegisteredEmployees();
         }
 
@@ -143,6 +144,22 @@ namespace test
             {
 
             }
+        }
+
+        public void GetRegisteredEvents()
+        {
+            List<IS_Events> events = new List<IS_Events>();
+            var eventsTemp = myevents.Get();
+
+            events.Add(new IS_Events { EventID = 0, EventName = "All" });
+
+            foreach (var a in eventsTemp)
+            {
+                events.Add(a);
+            }
+            cmbEventFilter.DataSource = events;
+            cmbEventFilter.DisplayMember = "EventName";
+            cmbEventFilter.ValueMember = "EventID";
         }
 
         public void GetEvents()
@@ -216,9 +233,17 @@ namespace test
 
         private void btnEventCheck_Click(object sender, System.EventArgs e)
         {
-            var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
-            txtDeetsEventDate.Text = a.EventDate;
-            txtDeetsVenue.Text = a.EventLocation;
+            try
+            {
+                var a = myevents.Get().Find(x => x.EventID.ToString() == cmbEvent.SelectedValue.ToString());
+                txtDeetsEventDate.Text = a.EventDate;
+                txtDeetsVenue.Text = a.EventLocation;
+                btnGoEventRegistration.Enabled = !txtDeetsEventDate.Text.Equals("");
+            }
+            catch
+            {
+                btnGoEventRegistration.Enabled = !txtDeetsEventDate.Text.Equals("");
+            }
         }
 
         private void btnGoEventRegistration_Click(object sender, System.EventArgs e)
@@ -257,6 +282,11 @@ namespace test
             {
                 var result = myevents.Post(isEvent);
                 if (result == true) MessageBox.Show("Event Successfully Added."); else MessageBox.Show("Workday ID Already Exists.");
+                txtEventDate.Value = DateTime.Now;
+                txtVenue.Clear();
+                txtEventName.Clear();
+                txtEventThemePath.Clear();
+                txtWaiver.Clear();
                 btnRefresh_Click(sender, e);
             }
         }
@@ -266,13 +296,32 @@ namespace test
         #region EVENTREGISTRATION
         public void GetRegisteredEmployees()
         {
-            GridEventRegistered.DataSource = myeventRegistration.Get();
-            GridEventRegistered.Columns[0].HeaderText = "Event";
-            GridEventRegistered.Columns[1].HeaderText = "Workday ID";
-            GridEventRegistered.Columns[2].HeaderText = "Employee";
-            GridEventRegistered.Columns[3].HeaderText = "Team Name";
-            GridEventRegistered.Columns[4].HeaderText = "Team Leader";
-            GridEventRegistered.Columns[5].HeaderText = "Date Registered";
+            if (cmbEventFilter.SelectedValue.ToString() != "0")
+            {
+                var a = myeventRegistration.Get();
+                a = a.Where(x => x.EventID == cmbEventFilter.SelectedValue.ToString()).ToList();
+                GridEventRegistered.DataSource = a;
+            }
+            else
+            {
+                GridEventRegistered.DataSource = myeventRegistration.Get();
+            }
+            try
+            {
+
+                GridEventRegistered.Columns[0].HeaderText = "Event";
+                GridEventRegistered.Columns[1].HeaderText = "Workday ID";
+                GridEventRegistered.Columns[2].HeaderText = "Employee";
+                GridEventRegistered.Columns[3].HeaderText = "Team Name";
+                GridEventRegistered.Columns[4].HeaderText = "Team Leader";
+                GridEventRegistered.Columns[5].HeaderText = "Date Registered";
+                GridEventRegistered.Columns[7].Visible = false;
+
+            }
+            catch
+            {
+
+            }
         }
         #endregion
 
@@ -345,8 +394,16 @@ namespace test
             cmbEvent.Text = "";
             GetEmployees();
             GetEvents();
+            GetRegisteredEvents();
             GetRegisteredEmployees();
+            btnEventCheck_Click(sender, e);
         }
 
+
+        private void cmbEventFilter_Leave(object sender, EventArgs e)
+        {
+            //MessageBox.Show(cmbEventFilter.SelectedValue.ToString());
+            GetRegisteredEmployees();
+        }
     }
 }

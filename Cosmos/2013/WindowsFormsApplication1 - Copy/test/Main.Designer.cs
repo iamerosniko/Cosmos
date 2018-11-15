@@ -106,6 +106,8 @@
             this.cmbEvent = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.PgReports = new MetroFramework.Controls.MetroTabPage();
+            this.cmbEventFilter = new MetroFramework.Controls.MetroComboBox();
+            this.metroLabel22 = new MetroFramework.Controls.MetroLabel();
             this.GridEventRegistered = new MetroFramework.Controls.MetroGrid();
             this.TileRptEventRegistration = new MetroFramework.Controls.MetroTile();
             this.TileRptEvent = new MetroFramework.Controls.MetroTile();
@@ -148,7 +150,7 @@
             this.TCMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TCMain.Location = new System.Drawing.Point(20, 60);
             this.TCMain.Name = "TCMain";
-            this.TCMain.SelectedIndex = 0;
+            this.TCMain.SelectedIndex = 2;
             this.TCMain.Size = new System.Drawing.Size(1326, 650);
             this.TCMain.TabIndex = 1;
             this.TCMain.UseSelectable = true;
@@ -989,7 +991,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEventDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.txtEventDate.Location = new System.Drawing.Point(16, 146);
-            this.txtEventDate.MinimumSize = new System.Drawing.Size(4, 29);
+            this.txtEventDate.MinimumSize = new System.Drawing.Size(0, 29);
             this.txtEventDate.Name = "txtEventDate";
             this.txtEventDate.Size = new System.Drawing.Size(325, 29);
             this.txtEventDate.TabIndex = 18;
@@ -1395,6 +1397,8 @@
             // PgReports
             // 
             this.PgReports.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PgReports.Controls.Add(this.cmbEventFilter);
+            this.PgReports.Controls.Add(this.metroLabel22);
             this.PgReports.Controls.Add(this.GridEventRegistered);
             this.PgReports.Controls.Add(this.TileRptEventRegistration);
             this.PgReports.Controls.Add(this.TileRptEvent);
@@ -1411,6 +1415,28 @@
             this.PgReports.VerticalScrollbarBarColor = true;
             this.PgReports.VerticalScrollbarHighlightOnWheel = false;
             this.PgReports.VerticalScrollbarSize = 10;
+            // 
+            // cmbEventFilter
+            // 
+            this.cmbEventFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmbEventFilter.FormattingEnabled = true;
+            this.cmbEventFilter.ItemHeight = 23;
+            this.cmbEventFilter.Location = new System.Drawing.Point(485, 23);
+            this.cmbEventFilter.Name = "cmbEventFilter";
+            this.cmbEventFilter.Size = new System.Drawing.Size(808, 29);
+            this.cmbEventFilter.TabIndex = 7;
+            this.cmbEventFilter.UseSelectable = true;
+            this.cmbEventFilter.Leave += new System.EventHandler(this.cmbEventFilter_Leave);
+            // 
+            // metroLabel22
+            // 
+            this.metroLabel22.AutoSize = true;
+            this.metroLabel22.Location = new System.Drawing.Point(399, 24);
+            this.metroLabel22.Name = "metroLabel22";
+            this.metroLabel22.Size = new System.Drawing.Size(80, 19);
+            this.metroLabel22.TabIndex = 6;
+            this.metroLabel22.Text = "Filter Event :";
             // 
             // GridEventRegistered
             // 
@@ -1443,7 +1469,7 @@
             this.GridEventRegistered.EnableHeadersVisualStyles = false;
             this.GridEventRegistered.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEventRegistered.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GridEventRegistered.Location = new System.Drawing.Point(399, 23);
+            this.GridEventRegistered.Location = new System.Drawing.Point(399, 59);
             this.GridEventRegistered.Name = "GridEventRegistered";
             this.GridEventRegistered.ReadOnly = true;
             this.GridEventRegistered.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1457,7 +1483,7 @@
             this.GridEventRegistered.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.GridEventRegistered.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEventRegistered.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridEventRegistered.Size = new System.Drawing.Size(894, 546);
+            this.GridEventRegistered.Size = new System.Drawing.Size(894, 510);
             this.GridEventRegistered.TabIndex = 5;
             // 
             // TileRptEventRegistration
@@ -1507,7 +1533,7 @@
             this.metroLabel17.Size = new System.Drawing.Size(420, 15);
             this.metroLabel17.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel17.TabIndex = 2;
-            this.metroLabel17.Text = "Version 1.0.0.4 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
+            this.metroLabel17.Text = "Version 1.0.0.5 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
             // 
             // Main
             // 
@@ -1553,6 +1579,7 @@
             this.metroPanel3.ResumeLayout(false);
             this.metroPanel3.PerformLayout();
             this.PgReports.ResumeLayout(false);
+            this.PgReports.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridEventRegistered)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1634,6 +1661,8 @@
         private MetroFramework.Controls.MetroButton btnWaiver;
         private MetroFramework.Controls.MetroLabel metroLabel21;
         private MetroFramework.Controls.MetroTextBox txtWaiver;
+        private MetroFramework.Controls.MetroLabel metroLabel22;
+        private MetroFramework.Controls.MetroComboBox cmbEventFilter;
     }
 }
 

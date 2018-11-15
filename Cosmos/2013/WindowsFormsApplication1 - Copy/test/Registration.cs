@@ -1,6 +1,8 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 using test.BW;
+using test.DTO;
 
 namespace test
 {
@@ -28,9 +30,11 @@ namespace test
             if (myEvent.EventEULA.Equals("") || myEvent.EventEULA == null)
             {
                 chbWaive.Visible = false;
+                btnOpenWaiver.Visible = false;
             }
             else
             {
+                btnOpenWaiver.Visible = true;
                 chbWaive.Visible = true;
             }
             //this.Text = "Registration for " + myEvent.EventName + " @ " + myEvent.EventLocation + "                  RESOLUTION : " + this.ClientSize.Width + "x" + this.ClientSize.Height;
@@ -68,13 +72,16 @@ namespace test
             {
             }
             BackgroundImage = Image.FromFile(@".\bg.png");
+            chbWaive_CheckStateChanged(sender, e);
+            //txtTeam.AutoCompleteSource = _bwEmployees.GetTeams();
+
         }
 
         public void ClearAll()
         {
             txtFirstName.Clear();
             txtLeader.Clear();
-            txtTeam.Clear();
+            txtTeam.Text = "";
             txtLastName.Clear();
             txtMiddleName.Clear();
             txtWorkdayID.Clear();
@@ -137,7 +144,7 @@ namespace test
                     {
                         EventID = long.Parse(_eventID),
                         WorkdayID = employee.WorkdayID,
-                        EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A"
+                        EventWaived = chbWaive.Visible ? (chbWaive.Checked ? "Yes" : "No") : "N/A",
                     };
 
                     var result = _bwEventRegistration.Post(registration);
@@ -153,6 +160,7 @@ namespace test
                     ClearAll();
                     _main.btnRefresh_Click(sender, e);
                 }
+                chbWaive.Checked = false;
             }
 
         }
@@ -163,16 +171,47 @@ namespace test
 
             if (employee == null)
             {
-                txtFirstName.Clear();
-                txtMiddleName.Clear();
-                txtLastName.Clear();
-                txtLeader.Clear();
-                txtTeam.Clear();
-                txtFirstName.Enabled = true;
-                txtMiddleName.Enabled = true;
-                txtLastName.Enabled = true;
-                txtLeader.Enabled = true;
-                txtTeam.Enabled = true;
+                if (!txtWorkdayID.Text.Trim().Equals(""))
+                {
+                    txtFirstName.Clear();
+                    txtMiddleName.Clear();
+                    txtLastName.Clear();
+                    txtLeader.Clear();
+                    txtTeam.Text = "";
+                    txtFirstName.Enabled = true;
+                    txtMiddleName.Enabled = true;
+                    txtLastName.Enabled = true;
+                    txtLeader.Enabled = true;
+                    txtTeam.Enabled = true;
+                    pnlReadOnlyTeam.Visible = false;
+                    pnlTeamWithCombo.Visible = true;
+                }
+                else
+                {
+                    txtFirstName.Clear();
+                    txtMiddleName.Clear();
+                    txtLastName.Clear();
+                    txtLeader.Clear();
+                    txtTeam.Text = "";
+                    txtFirstName.Enabled = false;
+                    txtMiddleName.Enabled = false;
+                    txtLastName.Enabled = false;
+                    txtLeader.Enabled = false;
+                    txtTeam.Enabled = false;
+                    pnlReadOnlyTeam.Visible = false;
+                    pnlTeamWithCombo.Visible = true;
+
+                }
+                var a = _bwEmployees.GetTeams();
+                List<TeamsDTO> teams = new List<TeamsDTO>();
+                teams.Add(new TeamsDTO { Leader = "", TeamName = "" });
+                foreach (var b in a)
+                {
+                    teams.Add(b);
+                }
+                cmbTeam.DataSource = teams;
+                cmbTeam.DisplayMember = "TeamName";
+                cmbTeam.ValueMember = "Leader";
             }
             else
             {
@@ -186,15 +225,57 @@ namespace test
                 txtLastName.Enabled = false;
                 txtLeader.Enabled = false;
                 txtTeam.Enabled = false;
+                pnlReadOnlyTeam.Visible = true;
+                pnlTeamWithCombo.Visible = false;
+                cmbTeam.DataSource = null;
 
             }
-
-            btnRegister.Enabled = true;
         }
 
         private void pnlImage_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void chbWaive_CheckStateChanged(object sender, System.EventArgs e)
+        {
+            var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
+
+            if (myEvent.EventEULA.Equals("") || myEvent.EventEULA == null)
+            {
+                btnRegister.Enabled = true;
+            }
+            else
+            {
+                btnRegister.Enabled = chbWaive.Checked;
+            }
+
+        }
+
+        private void btnOpenWaiver_Click(object sender, System.EventArgs e)
+        {
+            var myEvent = _bwEvents.Get().Find(x => x.EventID.ToString() == _eventID);
+
+            System.Diagnostics.Process.Start(@".\Event Theme\" + myEvent.EventEULA);
+        }
+
+        private void metroButton1_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void cmbTeam_TextChanged(object sender, System.EventArgs e)
+        {
+            try
+            {
+                txtLeader.Text = ((TeamsDTO)cmbTeam.SelectedValue).Leader.ToString();
+            }
+            catch
+            {
+                txtLeader.Text = cmbTeam.SelectedValue.ToString();
+                txtTeam.Text = cmbTeam.Text;
+
+            }
         }
     }
 }

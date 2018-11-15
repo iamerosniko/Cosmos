@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using test.DTO;
 
 namespace test.BW
 {
@@ -12,6 +13,27 @@ namespace test.BW
             context = _context;
         }
 
+        public List<TeamsDTO> GetTeams()
+        {
+            var a = context.IS_Employees.OrderBy(x => x.EmployeeTeam);
+            List<TeamsDTO> teamsTemp = new List<TeamsDTO>();
+            List<TeamsDTO> teams = new List<TeamsDTO>();
+            foreach (var b in a)
+            {
+                teamsTemp.Add(new TeamsDTO
+                {
+                    TeamName = b.EmployeeTeam,
+                    Leader = b.EmployeeTeamLeader
+                });
+            }
+            List<string> tmpTeam = teamsTemp.Select(x => x.TeamName).Distinct().ToList();
+
+            foreach (var tt in tmpTeam)
+            {
+                teams.Add(teamsTemp.Find(x => x.TeamName == tt));
+            }
+            return teams;
+        }
         public List<IS_Employees> Get()
         {
             return context.IS_Employees.OrderBy(x => x.WorkdayID).ToList();
