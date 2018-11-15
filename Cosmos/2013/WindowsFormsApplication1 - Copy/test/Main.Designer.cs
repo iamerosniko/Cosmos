@@ -1533,7 +1533,7 @@
             this.metroLabel17.Size = new System.Drawing.Size(420, 15);
             this.metroLabel17.Style = MetroFramework.MetroColorStyle.Blue;
             this.metroLabel17.TabIndex = 2;
-            this.metroLabel17.Text = "Version 1.0.0.6 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
+            this.metroLabel17.Text = "Version 1.0.0.7 @ENCA-2018 Enterprise Solutions Development Team - JHAS CORE ";
             // 
             // Main
             // 
