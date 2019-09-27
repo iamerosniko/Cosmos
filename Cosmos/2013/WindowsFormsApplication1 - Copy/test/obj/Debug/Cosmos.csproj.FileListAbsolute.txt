@@ -12,7 +12,6 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\MetroFramework.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\MetroFramework.Fonts.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Newtonsoft.Json.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\SQLite.Designer.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\System.Data.SQLite.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\System.Data.SQLite.Linq.dll
@@ -20,14 +19,7 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\EnvDTE.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.Shell.Interop.9.0.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.ProjectAggregator.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.ComponentModelHost.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.VSHelp.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\stdole.dll
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Microsoft.MSXML.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\EntityFramework.xml
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\Newtonsoft.Json.xml
@@ -44,3 +36,6 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\Cosmos.csproj.CopyComplete
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\Cosmos.exe
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\Cosmos.pdb
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\obj\Debug\Cosmos.csprojAssemblyReference.cache
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\EPPlus.dll
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\WindowsFormsApplication1 - Copy\test\bin\Debug\EPPlus.xml

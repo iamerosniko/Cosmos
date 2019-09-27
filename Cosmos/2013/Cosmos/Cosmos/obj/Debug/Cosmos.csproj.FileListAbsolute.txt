@@ -5,7 +5,6 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\E
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\EntityFramework.xml
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.csprojResolveAssemblyReference.cache
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.Properties.Resources.resources
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.csproj.GenerateResource.Cache
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.exe
@@ -14,3 +13,7 @@ C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\S
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\System.Data.SQLite.EF6.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\System.Data.SQLite.Linq.dll
 C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\System.Data.SQLite.xml
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.csprojAssemblyReference.cache
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.csproj.CoreCompileInputs.cache
+C:\Users\zEROSeven\Documents\GitHub\Cosmos\Cosmos\2013\Cosmos\Cosmos\obj\Debug\Cosmos.csproj.CopyComplete

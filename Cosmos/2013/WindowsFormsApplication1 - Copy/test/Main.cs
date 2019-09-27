@@ -1,5 +1,4 @@
 ﻿using MetroFramework.Forms;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -92,37 +91,59 @@ namespace test
         }
         private void btnBulk_Click(object sender, EventArgs e)
         {
+            //OpenFileDialog openFileDialog = new OpenFileDialog();
+            //openFileDialog.Filter = "Json File(*.json)|*.json";
+            //DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
+            //if (result == DialogResult.OK) // Test result.
+            //{
+            //    string file = openFileDialog.FileName;
+            //    using (StreamReader r = new StreamReader(file))
+            //    {
+            //        var json = r.ReadToEnd();
+            //        var items = JsonConvert.DeserializeObject<List<IS_Employees>>(json);
+            //        //bulk insert
+            //        txtBulkEmployees.Clear();
+            //        MessageBox.Show("Total of Items : " + items.Count + "\nThis will take a few moment.");
+
+            //        foreach (var item in items)
+            //        {
+            //            var a = myemployees.Post(item);
+            //            if (!a)
+            //            {
+            //                txtBulkEmployees.Text += "Existing Employee Item. Will Replaced with new data : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
+            //            }
+            //            else
+            //            {
+            //                txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
+
+            //            }
+            //        }
+            //    }
+            //}
+
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Json File(*.json)|*.json";
+            openFileDialog.Filter = "EXCEL File(*.xlsx)|*.xlsx";
             DialogResult result = openFileDialog.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 string file = openFileDialog.FileName;
-                using (StreamReader r = new StreamReader(file))
+                var items = myemployees.import(file);
+                foreach (var item in items)
                 {
-                    var json = r.ReadToEnd();
-                    var items = JsonConvert.DeserializeObject<List<IS_Employees>>(json);
-                    //bulk insert
-                    txtBulkEmployees.Clear();
-                    MessageBox.Show("Total of Items : " + items.Count + "\nThis will take a few moment.");
-
-                    foreach (var item in items)
+                    var a = myemployees.Post(item);
+                    if (!a)
                     {
-                        var a = myemployees.Post(item);
-                        if (!a)
-                        {
-                            txtBulkEmployees.Text += "Existing Employee Item. Will Replaced with new data : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
-                        }
-                        else
-                        {
-                            txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
+                        txtBulkEmployees.Text += "Existing Employee Item. Will Replaced with new data : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
+                    }
+                    else
+                    {
+                        txtBulkEmployees.Text += "New Employee Item : " + item.WorkdayID + " " + item.EmployeeFirstName + " " + item.EmployeeLastName + Environment.NewLine;
 
-                        }
                     }
                 }
+                MessageBox.Show("Bulk Insertion Completed");
+                btnRefresh_Click(sender, e);
             }
-            MessageBox.Show("Bulk Insertion Completed");
-            btnRefresh_Click(sender, e);
         }
 
         public void btnRefresh_Click(object sender, System.EventArgs e)
